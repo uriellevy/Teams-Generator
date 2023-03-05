@@ -1,0 +1,39 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --color-primary: #D7FFCD;
+    --color-secondary: #A4FF93;
+    --color-third: #73E68C;
+    --color-forth: #4CC17A;
+    --color-fifth: #2B8C6D;
+    --color-sixth: #246955;
+    --gradient-primary: linear-gradient(180deg, #D7FFCD 0%, #2B8C6D 100%), linear-gradient(45deg, #73E68C, #4CC17A, #A4FF93);
+    --gradient-secondary: radial-gradient(ellipse farthest-corner at 50% 50%, #E8FFE6 0%, #56C756 100%);
+    --border-radius: 8px;
+    --font-l: 24px;
+    --font-m: 20px;
+    --font-s: 16px;
+    --border: 2px solid #fff;
+    --border2: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+  }
