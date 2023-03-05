@@ -1,0 +1,47 @@
+.addSectionWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 7px 0 3px 0;
+    .addItemBtn {
+        font-size: var(--font-xl);
+        color: var(--color-approve);
+        transition: var(--transition);
+        cursor: pointer;
+        &:hover {
+            color: var(--color-approve-hover);
+        }
+    }
+    
+    .inputsArea {
+        width: 100%;
+        // text-align: end;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 10px;
+        .inputsWrapper {
+            width: 100%;
+            input {
+                background-color: transparent;
+                outline: none;
+                border: none;
+                width: 100%;
+                font-weight: bold;
+                &::placeholder {
+                    color: var(--color-separator);
+                }
+            }
+        }
+        .eraseText {
+            color: var(--color-separator);
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+}

@@ -1,10 +1,12 @@
-import {ListItem} from "../interfaces/interfaces";
+import {ListItemDesc, TeamItem} from "../interfaces/interfaces";
 
 export const CONSTS = {
     NAV_TITLE: "עמוד הבית",
+    GENERATE_TEAMS_BTN: "צור קבוצות",
+    LIST_EMPTY_TEXT: "התחל להזין שחקנים",
 };
 
-export const dummyListItems: ListItem[] = [
+export const dummyListItems: ListItemDesc[] = [
     {
         playerName: "אבי נמני",
         rating: 8,
@@ -47,4 +49,80 @@ export const dummyListItems: ListItem[] = [
         isEditMode: false,
         id: "5",
     },
+    {
+        playerName: "אלון מזרחי",
+        rating: 7,
+        isActive: true,
+        isEditMode: false,
+        id: "5",
+    },
+    {
+        playerName: "אלון מזרחי",
+        rating: 7,
+        isActive: true,
+        isEditMode: false,
+        id: "5",
+    },
+    {
+        playerName: "אלון מזרחי",
+        rating: 7,
+        isActive: true,
+        isEditMode: false,
+        id: "5",
+    },
+    {
+        playerName: "אלון מזרחי",
+        rating: 7,
+        isActive: true,
+        isEditMode: false,
+        id: "5",
+    },
+];
+
+export const dummyTeams: TeamItem[][] = [
+    [ {
+        playerName: "אבי נמני",
+        rating: 8,
+        id: "6",
+    },
+    {
+        playerName: "מנור סולומון",
+        rating: 10,
+        id: "1",
+    },
+    {
+        playerName: "עומר אצילי",
+        rating: 0,
+        id: "2",
+    },],
+    [ {
+        playerName: "אבי נמני",
+        rating: 8,
+        id: "6",
+    },
+    {
+        playerName: "מנור סולומון",
+        rating: 10,
+        id: "1",
+    },
+    {
+        playerName: "עומר אצילי",
+        rating: 0,
+        id: "2",
+    },],
+    [ {
+        playerName: "אבי נמני",
+        rating: 8,
+        id: "6",
+    },
+    {
+        playerName: "מנור סולומון",
+        rating: 10,
+        id: "1",
+    },
+    {
+        playerName: "עומר אצילי",
+        rating: 0,
+        id: "2",
+    },],
 ];
