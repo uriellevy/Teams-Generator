@@ -5,6 +5,7 @@ import ListItem from './ListItem'
 import AddSection from './AddSection'
 import { dummyListItems, CONSTS } from '../../../constants/Consts'
 import { RiAddCircleFill } from 'react-icons/ri';
+import ModalConfirm from './ModalConfirm'
 
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
                 <AddSection />
                 <input type="submit" className={classes.btnSubmit} value={CONSTS.GENERATE_TEAMS_BTN} />
             </form>
+            <ModalConfirm/>
         </div>
     )
 }

@@ -25,6 +25,7 @@
     --font-l: 24px;
     --font-m: 20px;
     --font-s: 16px;
+    --font-xs: 12px;
     --border: 2px solid #fff;
     --border2: 2px solid rgba(255, 255, 255, 0.5);
     --transition: all 0.3s ease;

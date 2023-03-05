@@ -4,6 +4,9 @@ export const CONSTS = {
     NAV_TITLE: "עמוד הבית",
     GENERATE_TEAMS_BTN: "צור קבוצות",
     LIST_EMPTY_TEXT: "התחל להזין שחקנים",
+    MODAL_MAIN_TITLE: "?כמה קבוצות",
+    MODAL_CONFIRM: "אישור",
+    MODAL_CANCEL: "ביטול",
 };
 
 export const dummyListItems: ListItemDesc[] = [
