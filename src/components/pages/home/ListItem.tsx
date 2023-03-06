@@ -3,7 +3,7 @@ import classes from "./ListItem.module.scss"
 import { ListItemDesc } from '../../../interfaces/interfaces'
 import { MdRemoveCircle } from 'react-icons/md';
 import { FaEdit } from 'react-icons/fa';
-import RatingDisplay from '../../../utils/RatingDisplay';
+import RatingDisplay from '../../common/ratingDisplay/RatingDisplay';
 import { CONSTS } from '../../../constants/Consts';
 import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext';
 
