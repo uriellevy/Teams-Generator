@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import classes from "./Home.module.scss"
 import TopBar from './TopBar'
 import ListItem from './ListItem'
@@ -6,28 +6,39 @@ import AddSection from './AddSection'
 import { dummyListItems, CONSTS } from '../../../constants/Consts'
 import { RiAddCircleFill } from 'react-icons/ri';
 import ModalConfirm from './ModalConfirm'
+import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext'
+import useBoolean from '../../../utils/customHooks/UseBoolean'
 
 
 const Home = () => {
-    
+    const { allPlayersList } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
+    // const [isModalConfirmOpen, setIsModalConfirmOpen] = useState(false);
+    const [isModalConfirmOpen, { setTrue, setFalse }] = useBoolean(false);
+
+    const onSubmitHandler = () => {
+        setTrue();
+    }
+
+
 
     return (
         <div className={classes.homeContainer}>
-            <TopBar listItems={dummyListItems}/>
-            <ul className={classes.listWrapper}>
-                {dummyListItems.map((listItem) => (
-                    <ListItem listItem={listItem} />
-                ))}
-            </ul>
-            {/* <div className={classes.listEmptyWrapper}>
-                <div className={classes.listEmptyText}>{CONSTS.LIST_EMPTY_TEXT}</div>
-                <RiAddCircleFill className={classes.listEmptyIcon}/>
-            </div> */}
-            <form className={classes.bottomForm}>
+            <TopBar allPlayersList={allPlayersList} />
+            {allPlayersList.length ?
+                <ul className={`${classes.listWrapper} ${classes.fadeIn}`}>
+                    {allPlayersList.map((listItem) => (<ListItem listItem={listItem} />))}
+                </ul>
+                :
+                <div className={classes.listEmptyWrapper}>
+                    <div className={classes.listEmptyText}>{CONSTS.LIST_EMPTY_TEXT}</div>
+                    <RiAddCircleFill className={classes.listEmptyIcon} />
+                </div>
+            }
+            <div className={classes.bottomForm}>
                 <AddSection />
-                <input type="submit" className={classes.btnSubmit} value={CONSTS.GENERATE_TEAMS_BTN} />
-            </form>
-            <ModalConfirm listItems={dummyListItems}/>
+                <button className={classes.btnSubmit} onClick={onSubmitHandler}>{CONSTS.GENERATE_TEAMS_BTN}</button>
+            </div>
+            {isModalConfirmOpen && <ModalConfirm allPlayersList={allPlayersList} setFalse={setFalse} />}
         </div>
     )
 }

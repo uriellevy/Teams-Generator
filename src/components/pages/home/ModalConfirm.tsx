@@ -2,17 +2,22 @@ import React, { ChangeEvent, useState } from 'react'
 import classes from "./ModalConfirm.module.scss"
 import { CONSTS } from '../../../constants/Consts'
 import { ListItemDesc } from '../../../interfaces/interfaces'
+import UseOutsideClick from '../../../utils/customHooks/UseOutsideClick'
+import { useNavigate } from "react-router-dom";
 
 interface ModalConfirmProps {
-    listItems: ListItemDesc[]
+    allPlayersList: ListItemDesc[]
+    setFalse: () => void
 }
 
-const ModalConfirm = ({listItems}: ModalConfirmProps) => {
+const ModalConfirm = ({allPlayersList, setFalse}: ModalConfirmProps) => {
     const [numberOfTeams, setNumberOfTeams] = useState("0");
     const [indication, setIndication] = useState("");
     const [error, setError] = useState(false);
-    const numOfActivePlayers = listItems.filter((item) => item.isActive).length;
+    const numOfActivePlayers = allPlayersList.filter((item) => item.isActive).length;
     const indicationStyle = `${error ? `${classes.teamsIndication} ${classes.errorMessage}`: `${classes.teamsIndication}`}`;
+    const navigate = useNavigate();
+    // const ref = UseOutsideClick(setFalse)
 
     const getTeamsDivisionResponse = (numOfTeams: number, numOfPlayers: number) => {
         const firstTeamLength = Math.floor(numOfPlayers / numOfTeams);
@@ -32,6 +37,11 @@ const ModalConfirm = ({listItems}: ModalConfirmProps) => {
         setNumberOfTeams(e.target.value)
     }
 
+    const onModalSubmit = () => {
+        navigate("/teams");
+
+    }
+
   return (
     <div className={classes.modalContainer}>
         <div className={classes.modalWrapper}>
@@ -42,8 +52,8 @@ const ModalConfirm = ({listItems}: ModalConfirmProps) => {
                 <input type="range" min={0} max={30} value={numberOfTeams} className={classes.rangeInput} onChange={onRangeInputChange}/>
             </div>
             <div className={classes.bottomArea}>
-                <button className={classes.btnConfirm}>{CONSTS.MODAL_CONFIRM}</button>
-                <button className={classes.btnCancel}>{CONSTS.MODAL_CANCEL}</button>
+                <button className={classes.btnConfirm} onClick={onModalSubmit}>{CONSTS.MODAL_CONFIRM}</button>
+                <button className={classes.btnCancel} onClick={() => setFalse()}>{CONSTS.MODAL_CANCEL}</button>
             </div>
         </div>
         

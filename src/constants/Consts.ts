@@ -10,6 +10,8 @@ export const CONSTS = {
     ACTIVE_PLAYER: "פעיל",
     NOT_ACTIVE_PLAYER: "לא פעיל",
     NOT_POSSIBLE_RESPONSE: "- כמות הקבוצות צריכה להיות קטנה מ",
+    TEAMS_RESULTS: "הקבוצות שלך!",
+    BACK_HOME_PAGE: "חזור",
 };
 
 export const dummyListItems: ListItemDesc[] = [
@@ -56,32 +58,32 @@ export const dummyListItems: ListItemDesc[] = [
         id: "5",
     },
     {
-        playerName: "אלון מזרחי",
-        rating: 7,
+        playerName: "ליאו מסי",
+        rating: 9,
         isActive: true,
         isEditMode: false,
-        id: "5",
+        id: "512",
     },
     {
-        playerName: "אלון מזרחי",
-        rating: 7,
+        playerName: "כריסטיאנו רונאלדו",
+        rating: 10,
         isActive: true,
         isEditMode: false,
-        id: "5",
+        id: "101010",
     },
     {
-        playerName: "אלון מזרחי",
-        rating: 7,
+        playerName: "טוני קרוס",
+        rating: 9,
         isActive: true,
         isEditMode: false,
-        id: "5",
+        id: "767876",
     },
     {
-        playerName: "אלון מזרחי",
-        rating: 7,
+        playerName: "ערן זהבי",
+        rating: 4,
         isActive: true,
         isEditMode: false,
-        id: "5",
+        id: "2992",
     },
 ];
 
