@@ -53,4 +53,29 @@
 		margin-left: 10px;
 		font-weight: bold;
 	}
+
+	.editModeWrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		.iconConfirmEdit {
+			font-size: var(--font-m);
+			transition: var(--transition);
+			&:hover {
+				color: var(--color-sixth);
+			}
+		}
+		.editInputs {
+			input {
+				background-color: transparent;
+				border: none;
+				font-weight: bold;
+				outline: none;
+				font-size: var(--font-s);
+				font-family: 'Rubik', sans-serif;
+
+			}
+		}
+	}
 }

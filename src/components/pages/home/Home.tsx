@@ -22,24 +22,24 @@ const Home = () => {
 
 
     return (
-        <div className={classes.homeContainer}>
-            <TopBar allPlayersList={allPlayersList} />
-            {allPlayersList.length ?
-                <ul className={`${classes.listWrapper} ${classes.fadeIn}`}>
-                    {allPlayersList.map((listItem) => (<ListItem listItem={listItem} />))}
-                </ul>
-                :
-                <div className={classes.listEmptyWrapper}>
-                    <div className={classes.listEmptyText}>{CONSTS.LIST_EMPTY_TEXT}</div>
-                    <RiAddCircleFill className={classes.listEmptyIcon} />
+            <div className={classes.homeContainer}>
+                <TopBar allPlayersList={allPlayersList} />
+                {allPlayersList.length ?
+                    <ul className={`${classes.listWrapper} ${classes.fadeIn}`}>
+                        {allPlayersList.map((listItem) => (<ListItem listItem={listItem} />))}
+                    </ul>
+                    :
+                    <div className={classes.listEmptyWrapper}>
+                        <div className={classes.listEmptyText}>{CONSTS.LIST_EMPTY_TEXT}</div>
+                        <RiAddCircleFill className={classes.listEmptyIcon} />
+                    </div>
+                }
+                <div className={classes.bottomForm}>
+                    <AddSection />
+                    <button className={classes.btnSubmit} onClick={onSubmitHandler}>{CONSTS.GENERATE_TEAMS_BTN}</button>
                 </div>
-            }
-            <div className={classes.bottomForm}>
-                <AddSection />
-                <button className={classes.btnSubmit} onClick={onSubmitHandler}>{CONSTS.GENERATE_TEAMS_BTN}</button>
+                {isModalConfirmOpen && <ModalConfirm allPlayersList={allPlayersList} setFalse={setFalse} />}
             </div>
-            {isModalConfirmOpen && <ModalConfirm allPlayersList={allPlayersList} setFalse={setFalse} />}
-        </div>
     )
 }
 

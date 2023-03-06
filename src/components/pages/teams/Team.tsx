@@ -8,7 +8,7 @@ interface TeamProps {
 
 const Team = ({team}: TeamProps) => {
   return (
-    <div className={classes.teamContainer}>
+    <div className={`${classes.teamContainer} ${classes.fadeIn}`}>
         {team.map((teamItem) => (
             <div className={classes.teamItemWrapper}>
                 <div className={classes.playerRating}>{teamItem.rating}</div>

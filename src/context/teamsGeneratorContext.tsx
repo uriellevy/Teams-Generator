@@ -9,6 +9,8 @@ export interface TeamsGeneratorContextType {
     onPlayerAdd: (name: string, rating: number) => void
     onToggleActiveStatus: (id: string) => void
     onDeletePlayer: (id: string) => void
+    onEditPlayer: (item: ListItemDesc) => void
+    onOpenEditMode: (id: string) => void
 }
 
 
@@ -34,8 +36,20 @@ export const TeamsGeneratorProvider = (props: any) => {
         setAllPlayersList([...updatedList]);
     }
 
-    const onEditPlayer = () => {
+    const onEditPlayer = (item: ListItemDesc) => {
+        
+    }
 
+    const onOpenEditMode = (id: string) => {
+        const editListItem = allPlayersList.find((listItem) => listItem.isEditMode === true);
+        const isEditAlreadyOpened = editListItem !== undefined;
+        if(isEditAlreadyOpened) return;
+        const updatedList = allPlayersList.map((listItem) => {
+            if (listItem.id === id) {
+                return { ...listItem, isEditMode: !listItem.isEditMode }
+            } else return { ...listItem }
+        })
+        setAllPlayersList(updatedList)
     }
 
     const onToggleActiveStatus = (id: string) => {
@@ -64,6 +78,8 @@ export const TeamsGeneratorProvider = (props: any) => {
         onPlayerAdd,
         onToggleActiveStatus,
         onDeletePlayer,
+        onEditPlayer,
+        onOpenEditMode,
     };
 
     return (

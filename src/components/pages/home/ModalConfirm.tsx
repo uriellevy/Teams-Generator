@@ -44,7 +44,7 @@ const ModalConfirm = ({allPlayersList, setFalse}: ModalConfirmProps) => {
 
   return (
     <div className={classes.modalContainer}>
-        <div className={classes.modalWrapper}>
+        <div className={`${classes.modalWrapper} ${classes.fadeIn}`}>
             <div className={classes.modalTitle}>{CONSTS.MODAL_MAIN_TITLE}</div>
             <div className={classes.inputWrapper}>
                 <div className={classes.teamsNumber}>{numberOfTeams}</div>
