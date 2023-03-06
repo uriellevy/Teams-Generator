@@ -32,6 +32,11 @@
 			}
 			.teamsIndication {
 				font-size: var(--font-xs);
+                color: #000;
+                &.errorMessage {
+                    color: var(--color-remove);
+                    font-size: var(--font-xs);
+                }
 			}
 			.rangeInput {
                 margin: 10px;
@@ -68,10 +73,7 @@
 				border: none;
 				background: transparent;
 			}
-            .errorMessage {
-                color: var(--color-remove);
-                font-size: var(--font-xs);
-            }
+          
 		}
 		.bottomArea {
 			display: flex;

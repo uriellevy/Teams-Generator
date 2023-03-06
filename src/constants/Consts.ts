@@ -7,6 +7,9 @@ export const CONSTS = {
     MODAL_MAIN_TITLE: "?כמה קבוצות",
     MODAL_CONFIRM: "אישור",
     MODAL_CANCEL: "ביטול",
+    ACTIVE_PLAYER: "פעיל",
+    NOT_ACTIVE_PLAYER: "לא פעיל",
+    NOT_POSSIBLE_RESPONSE: "- כמות הקבוצות צריכה להיות קטנה מ",
 };
 
 export const dummyListItems: ListItemDesc[] = [
@@ -20,7 +23,7 @@ export const dummyListItems: ListItemDesc[] = [
     {
         playerName: "מנור סולומון",
         rating: 10,
-        isActive: true,
+        isActive: false,
         isEditMode: false,
         id: "1",
     },

@@ -1,13 +1,24 @@
 import React from 'react'
 import classes from "./TopBar.module.scss"
-import { AiFillDelete } from 'react-icons/ai';
+import { ListItemDesc } from '../../../interfaces/interfaces';
+
+interface TopBarProps {
+  listItems: ListItemDesc[]
+}
 
 
-const TopBar = () => {
+const TopBar = ({listItems}: TopBarProps) => {
+
+  const getIndicationContent = () => {
+    const listLength = listItems.length;
+    const activeLength = listItems.filter((item) => item.isActive).length;
+    return ` ${activeLength}/${listLength}:שחקנים פעילים`;
+  }
+
+
   return (
     <div className={classes.topbarWrapper}>
-        <AiFillDelete className={classes.deleteAllBtn}/>
-        <div className={classes.topIndication}>שחקנים פעילים 3 מתוך 30</div>
+        <div className={classes.topIndication}>{getIndicationContent()}</div>
     </div>
   )
 }

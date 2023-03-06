@@ -1,0 +1,42 @@
+.ratingWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .ratingTitle {
+        font-size: 10px;
+    }
+
+    .ratingStars {
+        display: flex;
+        align-items: center;
+
+        .ratingStar {
+            width: 17px;
+            height: 17px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            text-align: center;
+            display: inline-block;
+            margin: auto;
+
+        }
+
+        .ratingStar.starEmpty {
+            background-image: url("../assets/ratingStarEmpty.svg");
+
+        }
+
+        .ratingStar.starHalf {
+            background-image: url("../assets/ratingStarHalf.svg");
+
+        }
+
+        .ratingStar.starFull {
+            background-image: url("../assets/ratingStarFull.svg");
+
+        }
+
+    }
+}

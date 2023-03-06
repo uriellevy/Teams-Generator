@@ -3,35 +3,54 @@
 	min-width: 300px;
 	justify-content: flex-end;
 	width: 100%;
-	padding: 6px;
+	padding: 8px;
 	border-bottom: 2px var(--color-separator) solid;
 	position: relative;
 	.itemIconsWrapper {
+		display: flex;
+		align-items: center;
 		position: absolute;
 		left: 5px;
 		top: 7px;
 		.iconRemoveItem {
 			color: var(--color-remove);
-            margin-right: 7px;
-            transition: var(--transition);
-            font-size: var(--font-m);
-            cursor: pointer;
-            &:hover {
-                color: var(--color-remove-hover);
-            }
+			margin-right: 7px;
+			transition: var(--transition);
+			font-size: var(--font-m);
+			cursor: pointer;
+			&:hover {
+				color: var(--color-remove-hover);
+			}
 		}
 		.iconEditItem {
 			color: var(--color-approve);
-            font-size: var(--font-m);
-            cursor: pointer;
-            transition: var(--transition);
-            &:hover {
-                color: var(--color-approve-hover);
-            }
+			font-size: var(--font-m);
+			cursor: pointer;
+			margin-right: 7px;
+			transition: var(--transition);
+			&:hover {
+				color: var(--color-approve-hover);
+			}
+		}
+		.activePlayer {
+			font-size: var(--font-xs);
+			font-weight: bold;
+			color: #fff;
+			border: 1px #fff solid;
+			background-color: var(--color-disable);
+			border-radius: var(--border-radius);
+			padding: 2px 5px;
+			transition: var(--transition);
+			cursor: pointer;
+			&.active {
+				background-color: var(--color-forth);
+				color: #fff;
+			}
 		}
 	}
-	.rating, .text {
+	.rating,
+	.text {
 		margin-left: 10px;
-        font-weight: bold;
+		font-weight: bold;
 	}
 }

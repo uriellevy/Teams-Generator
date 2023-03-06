@@ -17,11 +17,13 @@
     --color-remove-hover: #800020;
     --color-approve-hover: #0047AB;
     --color-approve: #4169E1;
+    --color-separator: rgba(255, 255, 255, 0.5);
+    --color-disable: rgb(102, 102, 102);
     --color-separator: rgba(0, 0, 0, 0.5);
     --gradient-primary: linear-gradient(180deg, #D7FFCD 0%, #2B8C6D 100%), linear-gradient(45deg, #73E68C, #4CC17A, #A4FF93);
     --gradient-secondary: radial-gradient(ellipse farthest-corner at 50% 50%, #E8FFE6 0%, #56C756 100%);
     --border-radius: 5px;
-    --font-xl: 28px;
+    --font-xl: 32px;
     --font-l: 24px;
     --font-m: 20px;
     --font-s: 16px;
