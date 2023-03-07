@@ -6,11 +6,13 @@ import ListItem from "../components/pages/home/ListItem";
 
 export interface TeamsGeneratorContextType {
     allPlayersList: ListItemDesc[]
+    allTeams: ListItemDesc[][]
     onPlayerAdd: (name: string, rating: number) => void
     onToggleActiveStatus: (id: string) => void
     onDeletePlayer: (id: string) => void
-    onEditPlayer: (item: ListItemDesc) => void
+    onEditPlayerConfirm: (id: string, newPlayer: string, newRating: number) => void
     onOpenEditMode: (id: string) => void
+    randomShuffle: (teamsNumber: number) => void
 }
 
 
@@ -18,6 +20,7 @@ export const TeamsGeneratorContext = createContext<TeamsGeneratorContextType | n
 
 export const TeamsGeneratorProvider = (props: any) => {
     const [allPlayersList, setAllPlayersList] = useState<ListItemDesc[]>(dummyListItems);
+    const [allTeams, setAllTeams] = useState<ListItemDesc[][]>([])
 
     const onPlayerAdd = (name: string, rating: number) => {
         if (!name || !rating) return
@@ -36,14 +39,20 @@ export const TeamsGeneratorProvider = (props: any) => {
         setAllPlayersList([...updatedList]);
     }
 
-    const onEditPlayer = (item: ListItemDesc) => {
-        
+    const onEditPlayerConfirm = (id: string, newPlayer: string, newRating: number) => {
+        if (!newPlayer) return
+        const updatedList = allPlayersList.map((listItem) => {
+            if (listItem.id === id) {
+                return { ...listItem, playerName: newPlayer, rating: newRating, isEditMode: false }
+            } else return { ...listItem }
+        })
+        setAllPlayersList([...updatedList]);
     }
 
     const onOpenEditMode = (id: string) => {
         const editListItem = allPlayersList.find((listItem) => listItem.isEditMode === true);
         const isEditAlreadyOpened = editListItem !== undefined;
-        if(isEditAlreadyOpened) return;
+        if (isEditAlreadyOpened) return;
         const updatedList = allPlayersList.map((listItem) => {
             if (listItem.id === id) {
                 return { ...listItem, isEditMode: !listItem.isEditMode }
@@ -61,8 +70,14 @@ export const TeamsGeneratorProvider = (props: any) => {
         setAllPlayersList(updatedList)
     }
 
-    const randomShuffle = () => {
-
+    const randomShuffle = (teamsNumber: number) => {
+        const shuffledItems = allPlayersList.sort(() => Math.random() - 0.5).filter((listItem) => listItem.isActive);
+        const teamItems: ListItemDesc[][] = Array.from({ length: teamsNumber }, () => []);
+        for (let i = 0; i < shuffledItems.length; i++) {
+            const teamIndex = i % teamsNumber;
+            teamItems[teamIndex].push(shuffledItems[i]);
+        }
+        setAllTeams(teamItems);
     }
 
     const sortByRating = () => {
@@ -75,11 +90,13 @@ export const TeamsGeneratorProvider = (props: any) => {
 
     const value = {
         allPlayersList,
+        allTeams,
         onPlayerAdd,
         onToggleActiveStatus,
         onDeletePlayer,
-        onEditPlayer,
+        onEditPlayerConfirm,
         onOpenEditMode,
+        randomShuffle,
     };
 
     return (

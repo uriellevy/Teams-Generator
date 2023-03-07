@@ -62,6 +62,7 @@
 		.iconConfirmEdit {
 			font-size: var(--font-m);
 			transition: var(--transition);
+			cursor: pointer;
 			&:hover {
 				color: var(--color-sixth);
 			}

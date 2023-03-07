@@ -1,9 +1,10 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useContext, useState } from 'react'
 import classes from "./ModalConfirm.module.scss"
 import { CONSTS } from '../../../constants/Consts'
 import { ListItemDesc } from '../../../interfaces/interfaces'
 import UseOutsideClick from '../../../utils/customHooks/UseOutsideClick'
 import { useNavigate } from "react-router-dom";
+import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext'
 
 interface ModalConfirmProps {
     allPlayersList: ListItemDesc[]
@@ -11,6 +12,8 @@ interface ModalConfirmProps {
 }
 
 const ModalConfirm = ({allPlayersList, setFalse}: ModalConfirmProps) => {
+  const { randomShuffle } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
+
     const [numberOfTeams, setNumberOfTeams] = useState("0");
     const [indication, setIndication] = useState("");
     const [error, setError] = useState(false);
@@ -37,9 +40,13 @@ const ModalConfirm = ({allPlayersList, setFalse}: ModalConfirmProps) => {
         setNumberOfTeams(e.target.value)
     }
 
-    const onModalSubmit = () => {
-        navigate("/teams");
+    const onModalRandomSubmit = () => {
+        if(error || numberOfTeams === "0") return;
+        randomShuffle(+numberOfTeams);
+        setTimeout(() => {
 
+            navigate("/teams");
+        },0)
     }
 
   return (
@@ -52,11 +59,11 @@ const ModalConfirm = ({allPlayersList, setFalse}: ModalConfirmProps) => {
                 <input type="range" min={0} max={30} value={numberOfTeams} className={classes.rangeInput} onChange={onRangeInputChange}/>
             </div>
             <div className={classes.bottomArea}>
-                <button className={classes.btnConfirm} onClick={onModalSubmit}>{CONSTS.MODAL_CONFIRM}</button>
+                {/* <button className={classes.btnConfirm} onClick={onModalRandomSubmit}>{CONSTS.MODAL_RATING_SORT}</button> */}
+                <button className={classes.btnConfirm} onClick={onModalRandomSubmit}>{CONSTS.MODAL_RANDOM}</button>
                 <button className={classes.btnCancel} onClick={() => setFalse()}>{CONSTS.MODAL_CANCEL}</button>
             </div>
         </div>
-        
     </div>
   )
 }

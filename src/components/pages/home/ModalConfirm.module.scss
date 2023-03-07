@@ -82,20 +82,37 @@
 		.bottomArea {
 			display: flex;
 			width: 100%;
-			justify-content: flex-start;
+			justify-content: center;
 			.btnConfirm {
 				margin: 0 5px;
 				background-color: transparent;
 				border: none;
                 font-weight: bold;
                 color: var(--color-fifth);
+                cursor: pointer;
+                border: 2px solid var(--color-fifth);
+                border-radius: 8px;
+                padding: 3px;
+                transition: var(--transition);
+                &:hover {
+                    background-color: var(--color-fifth);
+                    color: #fff;
+                }
 			}
 			.btnCancel {
 				margin: 0 5px;
 				background-color: transparent;
 				border: none;
                 font-weight: bold;
-
+                cursor: pointer;
+                border: 2px solid #000;
+                border-radius: 8px;
+                padding: 3px;
+                transition: var(--transition);
+                &:hover {
+                    background-color: #000;
+                    color: #fff;
+                }
 			}
 		}
 	}

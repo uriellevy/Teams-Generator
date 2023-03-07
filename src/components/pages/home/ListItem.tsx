@@ -13,7 +13,7 @@ interface ListItemProps {
 }
 
 const ListItem = ({ listItem }: ListItemProps) => {
-  const { onDeletePlayer, onToggleActiveStatus, onOpenEditMode, allPlayersList } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
+  const { onDeletePlayer, onToggleActiveStatus, onOpenEditMode, allPlayersList, onEditPlayerConfirm } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
   const [playerName, setPlayerName] = useState(listItem.playerName);
   const [rating, setRating] = useState(listItem.rating);
   const textInputRef = useRef<HTMLInputElement>(null);
@@ -22,16 +22,19 @@ const ListItem = ({ listItem }: ListItemProps) => {
 
   useEffect(() => {
     textInputRef.current?.focus();
-  })
+  },[playerName])
 
-  console.log(allPlayersList)
+  const OnEditSaveHandler = () => {
+    onEditPlayerConfirm(listItem.id, playerName, rating)
+  }
+
 
   return (
     <li className={classes.listItemWrapper}>
       {listItem.isEditMode ?
         <>
           <div className={classes.editModeWrapper}>
-            <GiConfirmed className={classes.iconConfirmEdit}/>
+            <GiConfirmed className={classes.iconConfirmEdit} onClick={OnEditSaveHandler}/>
             <div className={classes.editInputs}>
               <input className={classes.editPlayerName} type="number"  min={0} max={10} placeholder='הזן דירוג שחקן...' dir='rtl' value={rating} onChange={(e:ChangeEvent<HTMLInputElement>) => setRating(+e.target.value)}/>
               <input className={classes.editRating} type="text" ref={textInputRef} placeholder='הזן שם שחקן...' dir='rtl' required value={playerName} onChange={(e:ChangeEvent<HTMLInputElement>) => setPlayerName(e.target.value)}/>
