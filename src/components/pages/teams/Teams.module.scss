@@ -1,12 +1,15 @@
 .teamsContainer {
     width: 100vw;
-    height: 100vh;
-    padding: 50px 0;
-    background-color: rgba(0,0,0,0.9);
     overflow: auto;
+    height: inherit;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    margin-bottom: 20px;
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }
 

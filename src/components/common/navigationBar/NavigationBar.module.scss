@@ -1,20 +1,17 @@
 .navContainer {
-	position: fixed;
-	top: 0;
-	width: 100%;
 	background-color: var(--color-sixth);
 	height: 40px;
+    width: 100%;
 	color: #fff;
 	display: flex;
 	align-items: center;
     justify-content: space-around;
 	padding: 0 10px;
 	font-size: var(--font-m);
+    z-index: 100;
 }
 
 .navTeamsContainer {
-    position: fixed;
-	top: 0;
 	width: 100%;
 	background-color: var(--color-sixth);
 	height: 40px;
@@ -24,6 +21,7 @@
     justify-content: space-between;
 	padding: 0 10px;
 	font-size: var(--font-m);
+    border-bottom: var(--border2);
     .btnBackWrapper {
         display: flex;
         align-items: center;

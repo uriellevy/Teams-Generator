@@ -6,6 +6,7 @@ import Home from './components/pages/home/Home';
 import NavigationBar from './components/common/navigationBar/NavigationBar';
 import { TeamsGeneratorProvider } from './context/teamsGeneratorContext';
 import { AnimatePresence } from "framer-motion";
+import Footer from './components/common/footer/Footer';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
               <Route path="/teams" element={<Teams />} />
             </Routes>
           </AnimatePresence>
+          <Footer />
         </BrowserRouter>
       </TeamsGeneratorProvider>
 

@@ -11,10 +11,15 @@ const NavigationBar = () => {
   const [isHomeNav, setIsHomeNav] = useState(true);
   const navigate = useNavigate();
   let location = useLocation();
-  
+
   useEffect(() => {
     setIsHomeNav(location.pathname === "/" ? true : false)
   }, [location]);
+
+  const onMenuClick = async () => {
+    const shareData = { url: window.location.href }
+    const sharing = await navigator.share(shareData);
+  }
   
   return (
     <>
@@ -22,7 +27,7 @@ const NavigationBar = () => {
         <div className={classes.navContainer}>{NAV_TITLE}</div>
         :
         <div className={classes.navTeamsContainer}>
-          <BiDotsHorizontalRounded className={classes.navMenu}/>
+          <BiDotsHorizontalRounded className={classes.navMenu} onClick={onMenuClick}/>
           <div className={classes.navMainTitle}>{TEAMS_RESULTS}</div>
           <div className={classes.btnBackWrapper} onClick={() => navigate("/")}>
             <div className={classes.backTitle}>{BACK_HOME_PAGE}</div>

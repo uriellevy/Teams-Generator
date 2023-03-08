@@ -2,20 +2,40 @@
 	width: 100%;
 	max-width: 550px;
 	border-radius: 8px;
-	padding: 10px;
+	padding: 0 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding-top: 50px;
 	.listWrapper {
-		&.fadeIn {
+        &.fadeIn {
+            min-width: 340px;
+            width: 100%;
 			opacity: 0;
 			animation: fadeIn ease-in 0.5s forwards;
 		}
-		overflow: auto;
-		height: 65vh;
+		overflow-y: scroll;
+		height: 60vh;
 		min-width: 360px;
+		/* width */
+		&::-webkit-scrollbar {
+			width: 5px;
+		}
+
+		/* Track */
+		&::-webkit-scrollbar-track {
+			background: #f1f1f1;
+		}
+
+		/* Handle */
+		&::-webkit-scrollbar-thumb {
+			background: #888;
+		}
+
+		/* Handle on hover */
+		&::-webkit-scrollbar-thumb:hover {
+			background: #555;
+		}
 	}
 	.listEmptyWrapper {
 		width: 100%;

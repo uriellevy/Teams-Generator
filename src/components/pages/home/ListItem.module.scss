@@ -6,6 +6,9 @@
 	padding: 8px;
 	border-bottom: 2px var(--color-separator) solid;
 	position: relative;
+	&:last-child {
+		border: 0 !important;
+	}
 	.itemIconsWrapper {
 		display: flex;
 		align-items: center;

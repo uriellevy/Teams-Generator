@@ -13,6 +13,7 @@ export interface TeamsGeneratorContextType {
     onEditPlayerConfirm: (id: string, newPlayer: string, newRating: number) => void
     onOpenEditMode: (id: string) => void
     randomShuffle: (teamsNumber: number) => void
+    sortByRating: (teamsNumber: number) => void
 }
 
 
@@ -80,9 +81,23 @@ export const TeamsGeneratorProvider = (props: any) => {
         setAllTeams(teamItems);
     }
 
-    const sortByRating = () => {
+    const sortByRating = (teamsNumber: number) => {
+        const teamsArray:ListItemDesc[][] = Array.from({ length: teamsNumber }, () => []);
+        const activeSortedPlayers = allPlayersList.filter((listItem) => listItem.isActive).sort((a, b) => (a.rating < b.rating) ? 1 : (a.rating > b.rating) ? -1 : Math.random() - 0.5);
+        let currentTeamIdx = 0;
 
+        for (let i = 0; i < activeSortedPlayers.length; i++) {
+            if(currentTeamIdx === teamsArray.length) {
+                teamsArray.reverse();
+                currentTeamIdx = 0;
+            }
+            teamsArray[currentTeamIdx].push(activeSortedPlayers[i])
+            currentTeamIdx++;
+        }
+        setAllTeams(teamsArray);
     }
+    
+
 
 
 
@@ -97,6 +112,7 @@ export const TeamsGeneratorProvider = (props: any) => {
         onEditPlayerConfirm,
         onOpenEditMode,
         randomShuffle,
+        sortByRating,
     };
 
     return (

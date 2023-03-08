@@ -1,6 +1,5 @@
 import React, {useContext} from 'react'
 import classes from "./Teams.module.scss"
-import { dummyTeams } from '../../../constants/Consts'
 import Team from './Team'
 import AnimatedPage from "../../../utils/AnimatedPage";
 import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext';
@@ -8,13 +7,12 @@ import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../conte
 
 const Teams = () => {
   const { allTeams } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
-  console.log(allTeams)
 
   return (
     <div className={classes.teamsContainer}>
       <AnimatedPage>
-        {allTeams.map((team) => (
-          <Team team={team} />
+        {allTeams.map((team, i) => (
+          <Team team={team} teamNumber={i + 1}/>
         ))}
       </AnimatedPage>
     </div>
