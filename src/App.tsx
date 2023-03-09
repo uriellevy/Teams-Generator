@@ -17,7 +17,7 @@ function App() {
           <NavigationBar />
           <AnimatePresence >
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/teams-generator" element={<Home />} />
               <Route path="/teams" element={<Teams />} />
             </Routes>
           </AnimatePresence>
