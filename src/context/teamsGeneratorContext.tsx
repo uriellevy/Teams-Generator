@@ -1,12 +1,11 @@
 import React, { useState, createContext } from "react";
-import { dummyListItems } from "../constants/Consts";
-import { ListItemDesc } from "../interfaces/interfaces";
+import { ListItemDesc, TeamItem } from "../interfaces/interfaces";
 import { v4 as uuidv4 } from 'uuid';
 import { localStorageService } from "../services/localStorage";
 
 export interface TeamsGeneratorContextType {
     allPlayersList: ListItemDesc[]
-    allTeams: ListItemDesc[][]
+    allTeams: TeamItem[][]
     onPlayerAdd: (name: string, rating: number) => void
     onToggleActiveStatus: (id: string) => void
     onDeletePlayer: (id: string) => void
@@ -21,7 +20,7 @@ export const TeamsGeneratorContext = createContext<TeamsGeneratorContextType | n
 
 export const TeamsGeneratorProvider = (props: any) => {
     const [allPlayersList, setAllPlayersList] = useState<ListItemDesc[]>(localStorageService.getAllPlayersList());
-    const [allTeams, setAllTeams] = useState<ListItemDesc[][]>([])
+    const [allTeams, setAllTeams] = useState<TeamItem[][]>(localStorageService.getAllTeams())
 
     const onPlayerAdd = (name: string, rating: number) => {
         const updatedList = [...allPlayersList, {
@@ -78,12 +77,13 @@ export const TeamsGeneratorProvider = (props: any) => {
 
     const randomShuffle = (teamsNumber: number) => {
         const shuffledItems = allPlayersList.sort(() => Math.random() - 0.5).filter((listItem) => listItem.isActive);
-        const teamItems: ListItemDesc[][] = Array.from({ length: teamsNumber }, () => []);
+        const teamsArray: ListItemDesc[][] = Array.from({ length: teamsNumber }, () => []);
         for (let i = 0; i < shuffledItems.length; i++) {
             const teamIndex = i % teamsNumber;
-            teamItems[teamIndex].push(shuffledItems[i]);
+            teamsArray[teamIndex].push(shuffledItems[i]);
         }
-        setAllTeams(teamItems);
+        setAllTeams(teamsArray);
+        localStorageService.saveAllTeams(teamsArray);
     }
 
     const sortByRating = (teamsNumber: number) => {
@@ -100,6 +100,7 @@ export const TeamsGeneratorProvider = (props: any) => {
             currentTeamIdx++;
         }
         setAllTeams(teamsArray);
+        localStorageService.saveAllTeams(teamsArray);
     }
 
 

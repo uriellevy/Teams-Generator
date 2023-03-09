@@ -14,7 +14,7 @@ interface ListItemProps {
 
 const ListItem = ({ listItem }: ListItemProps) => {
   const { onDeletePlayer, onToggleActiveStatus, onOpenEditMode, onEditPlayerConfirm } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
-  const [playerName, setPlayerName] = useState(listItem.playerName);
+  const [playerEdited, setPlayerEdited] = useState(listItem.playerName);
   const [rating, setRating] = useState(listItem.rating);
   const textInputRef = useRef<HTMLInputElement>(null);
   const activeBtnStyle = `${classes.activePlayer} ${listItem.isActive ? classes.active : ""}`;
@@ -22,22 +22,17 @@ const ListItem = ({ listItem }: ListItemProps) => {
 
   useEffect(() => {
     textInputRef.current?.focus();
-  },[playerName])
-
-  const OnEditSaveHandler = () => {
-    onEditPlayerConfirm(listItem.id, playerName, rating)
-  }
-
+  },[listItem.isEditMode])
 
   return (
     <li className={classes.listItemWrapper}>
       {listItem.isEditMode ?
         <>
           <div className={classes.editModeWrapper}>
-            <GiConfirmed className={classes.iconConfirmEdit} onClick={OnEditSaveHandler}/>
+            <GiConfirmed className={classes.iconConfirmEdit} onClick={() => onEditPlayerConfirm(listItem.id, playerEdited, rating)}/>
             <div className={classes.editInputs}>
               <input className={classes.editPlayerName} type="number"  min={0} max={10} placeholder='הזן דירוג שחקן...' dir='rtl' value={rating} onChange={(e:ChangeEvent<HTMLInputElement>) => setRating(+e.target.value)}/>
-              <input className={classes.editRating} type="text" ref={textInputRef} placeholder='הזן שם שחקן...' dir='rtl' required value={playerName} onChange={(e:ChangeEvent<HTMLInputElement>) => setPlayerName(e.target.value)}/>
+              <input className={classes.editRating} type="text" ref={textInputRef} placeholder='הזן שם שחקן...' dir='rtl' required value={playerEdited} onChange={(e:ChangeEvent<HTMLInputElement>) => setPlayerEdited(e.target.value)}/>
             </div>
           </div>
         </>
