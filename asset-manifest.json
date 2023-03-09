@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.e142d44f.css",
-    "main.js": "/static/js/main.bf0c1d85.js",
-    "static/media/ratingStarFull.svg": "/static/media/ratingStarFull.481e7adad12a5379c9f0.svg",
-    "static/media/ratingStarHalf.svg": "/static/media/ratingStarHalf.be8b929341a7d60c2ff1.svg",
-    "static/media/ratingStarEmpty.svg": "/static/media/ratingStarEmpty.543b9d7659d694222b1a.svg",
-    "index.html": "/index.html",
-    "main.e142d44f.css.map": "/static/css/main.e142d44f.css.map",
-    "main.bf0c1d85.js.map": "/static/js/main.bf0c1d85.js.map"
+    "main.css": "/teams-generator/static/css/main.93ea4ced.css",
+    "main.js": "/teams-generator/static/js/main.bf0c1d85.js",
+    "static/media/ratingStarFull.svg": "/teams-generator/static/media/ratingStarFull.481e7adad12a5379c9f0.svg",
+    "static/media/ratingStarHalf.svg": "/teams-generator/static/media/ratingStarHalf.be8b929341a7d60c2ff1.svg",
+    "static/media/ratingStarEmpty.svg": "/teams-generator/static/media/ratingStarEmpty.543b9d7659d694222b1a.svg",
+    "index.html": "/teams-generator/index.html",
+    "main.93ea4ced.css.map": "/teams-generator/static/css/main.93ea4ced.css.map",
+    "main.bf0c1d85.js.map": "/teams-generator/static/js/main.bf0c1d85.js.map"
   },
   "entrypoints": [
-    "static/css/main.e142d44f.css",
+    "static/css/main.93ea4ced.css",
     "static/js/main.bf0c1d85.js"
   ]
 }
