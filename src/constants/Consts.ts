@@ -1,4 +1,4 @@
-import {ListItemDesc, TeamItem} from "../interfaces/interfaces";
+import {ListItemDesc} from "../interfaces/interfaces";
 
 export const CONSTS = {
     NAV_TITLE: "עמוד הבית",
@@ -11,9 +11,10 @@ export const CONSTS = {
     ACTIVE_PLAYER: "פעיל",
     NOT_ACTIVE_PLAYER: "לא פעיל",
     NOT_POSSIBLE_RESPONSE: "- כמות הקבוצות צריכה להיות קטנה מ",
-    TEAMS_RESULTS: "הקבוצות שלך!",
+    TEAMS_RESULTS: "!הקבוצות שלך",
     BACK_HOME_PAGE: "חזור",
     TEAM_NUMBER: "קבוצה מספר ",
+    ERROR_MESSAGE: "נא למלא שם שחקן ודירוג(0-10)",
 };
 
 export const dummyListItems: ListItemDesc[] = [
@@ -158,3 +159,4 @@ export const dummyListItems: ListItemDesc[] = [
         id: "21212",
     },
 ];
+

@@ -1,8 +1,8 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, createContext } from "react";
 import { dummyListItems } from "../constants/Consts";
 import { ListItemDesc } from "../interfaces/interfaces";
 import { v4 as uuidv4 } from 'uuid';
-import ListItem from "../components/pages/home/ListItem";
+import { localStorageService } from "../services/localStorage";
 
 export interface TeamsGeneratorContextType {
     allPlayersList: ListItemDesc[]
@@ -20,24 +20,27 @@ export interface TeamsGeneratorContextType {
 export const TeamsGeneratorContext = createContext<TeamsGeneratorContextType | null>(null);
 
 export const TeamsGeneratorProvider = (props: any) => {
-    const [allPlayersList, setAllPlayersList] = useState<ListItemDesc[]>(dummyListItems);
+    const [allPlayersList, setAllPlayersList] = useState<ListItemDesc[]>(localStorageService.getAllPlayersList());
     const [allTeams, setAllTeams] = useState<ListItemDesc[][]>([])
 
     const onPlayerAdd = (name: string, rating: number) => {
-        if (!name || !rating) return
-        setAllPlayersList([...allPlayersList, {
+        const updatedList = [...allPlayersList, {
             playerName: name,
             rating: rating,
             id: uuidv4(),
             isActive: true,
             isEditMode: false,
-        }]);
+        }]
+        setAllPlayersList(updatedList);
+        localStorageService.saveAllPlayersList(updatedList);
     }
+
 
 
     const onDeletePlayer = (id: string) => {
         const updatedList = allPlayersList.filter((listItem) => listItem.id !== id)
         setAllPlayersList([...updatedList]);
+        localStorageService.saveAllPlayersList(updatedList);
     }
 
     const onEditPlayerConfirm = (id: string, newPlayer: string, newRating: number) => {
@@ -47,7 +50,8 @@ export const TeamsGeneratorProvider = (props: any) => {
                 return { ...listItem, playerName: newPlayer, rating: newRating, isEditMode: false }
             } else return { ...listItem }
         })
-        setAllPlayersList([...updatedList]);
+        setAllPlayersList(updatedList);
+        localStorageService.saveAllPlayersList(updatedList);
     }
 
     const onOpenEditMode = (id: string) => {
@@ -69,6 +73,7 @@ export const TeamsGeneratorProvider = (props: any) => {
             } else return { ...listItem }
         })
         setAllPlayersList(updatedList)
+        localStorageService.saveAllPlayersList(updatedList);
     }
 
     const randomShuffle = (teamsNumber: number) => {
@@ -82,12 +87,12 @@ export const TeamsGeneratorProvider = (props: any) => {
     }
 
     const sortByRating = (teamsNumber: number) => {
-        const teamsArray:ListItemDesc[][] = Array.from({ length: teamsNumber }, () => []);
+        const teamsArray: ListItemDesc[][] = Array.from({ length: teamsNumber }, () => []);
         const activeSortedPlayers = allPlayersList.filter((listItem) => listItem.isActive).sort((a, b) => (a.rating < b.rating) ? 1 : (a.rating > b.rating) ? -1 : Math.random() - 0.5);
         let currentTeamIdx = 0;
 
         for (let i = 0; i < activeSortedPlayers.length; i++) {
-            if(currentTeamIdx === teamsArray.length) {
+            if (currentTeamIdx === teamsArray.length) {
                 teamsArray.reverse();
                 currentTeamIdx = 0;
             }
@@ -96,7 +101,7 @@ export const TeamsGeneratorProvider = (props: any) => {
         }
         setAllTeams(teamsArray);
     }
-    
+
 
 
 

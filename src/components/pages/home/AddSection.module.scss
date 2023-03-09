@@ -35,6 +35,12 @@
 					color: var(--color-separator);
 				}
 			}
+            .errorMessage {
+                font-weight: bold;
+                color: var(--color-remove-hover);
+                font-size: var(--font-xs);
+                text-align: end;
+            }
 		}
 		.eraseText {
 			color: var(--color-separator);

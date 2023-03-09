@@ -1,9 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import classes from "./Home.module.scss"
 import TopBar from './TopBar'
 import ListItem from './ListItem'
 import AddSection from './AddSection'
-import { dummyListItems, CONSTS } from '../../../constants/Consts'
+import { CONSTS } from '../../../constants/Consts'
 import { RiAddCircleFill } from 'react-icons/ri';
 import ModalConfirm from './ModalConfirm'
 import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext'
@@ -12,14 +12,7 @@ import useBoolean from '../../../utils/customHooks/UseBoolean'
 
 const Home = () => {
     const { allPlayersList } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
-    // const [isModalConfirmOpen, setIsModalConfirmOpen] = useState(false);
     const [isModalConfirmOpen, { setTrue, setFalse }] = useBoolean(false);
-
-    const onSubmitHandler = () => {
-        setTrue();
-    }
-
-
 
     return (
             <div className={classes.homeContainer}>
@@ -36,7 +29,7 @@ const Home = () => {
                 }
                 <div className={classes.bottomForm}>
                     <AddSection />
-                    <button className={classes.btnSubmit} onClick={onSubmitHandler}>{CONSTS.GENERATE_TEAMS_BTN}</button>
+                    <button className={classes.btnSubmit} onClick={() => setTrue()}>{CONSTS.GENERATE_TEAMS_BTN}</button>
                 </div>
                 {isModalConfirmOpen && <ModalConfirm allPlayersList={allPlayersList} setFalse={setFalse} />}
             </div>

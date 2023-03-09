@@ -13,7 +13,7 @@ interface ListItemProps {
 }
 
 const ListItem = ({ listItem }: ListItemProps) => {
-  const { onDeletePlayer, onToggleActiveStatus, onOpenEditMode, allPlayersList, onEditPlayerConfirm } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
+  const { onDeletePlayer, onToggleActiveStatus, onOpenEditMode, onEditPlayerConfirm } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
   const [playerName, setPlayerName] = useState(listItem.playerName);
   const [rating, setRating] = useState(listItem.rating);
   const textInputRef = useRef<HTMLInputElement>(null);
