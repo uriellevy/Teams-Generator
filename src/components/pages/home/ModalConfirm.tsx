@@ -2,16 +2,16 @@ import React, { ChangeEvent, useContext, useState } from 'react'
 import classes from "./ModalConfirm.module.scss"
 import { CONSTS } from '../../../constants/Consts'
 import { ListItemDesc } from '../../../interfaces/interfaces'
-import UseOutsideClick from '../../../utils/customHooks/UseOutsideClick'
 import { useNavigate } from "react-router-dom";
 import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext'
 
 interface ModalConfirmProps {
     allPlayersList: ListItemDesc[]
     setFalse: () => void
+    isModalConfirmOpen:boolean
 }
 
-const ModalConfirm = ({ allPlayersList, setFalse }: ModalConfirmProps) => {
+const ModalConfirm = ({ allPlayersList, setFalse, isModalConfirmOpen }: ModalConfirmProps) => {
     const { randomShuffle, sortByRating } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
 
     const [numberOfTeams, setNumberOfTeams] = useState("0");
@@ -20,7 +20,6 @@ const ModalConfirm = ({ allPlayersList, setFalse }: ModalConfirmProps) => {
     const numOfActivePlayers = allPlayersList.filter((item) => item.isActive).length;
     const indicationStyle = `${error ? `${classes.teamsIndication} ${classes.errorMessage}` : `${classes.teamsIndication}`}`;
     const navigate = useNavigate();
-    // const ref = UseOutsideClick(setFalse)
 
     const getTeamsDivisionResponse = (numOfTeams: number, numOfPlayers: number) => {
         const firstTeamLength = Math.floor(numOfPlayers / numOfTeams);

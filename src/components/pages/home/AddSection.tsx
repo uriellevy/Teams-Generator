@@ -3,7 +3,6 @@ import classes from "./AddSection.module.scss"
 import { AiOutlinePlus } from 'react-icons/ai';
 import { TiDelete } from 'react-icons/ti';
 import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext';
-
 import { CONSTS } from '../../../constants/Consts';
 interface AddSectionProps {
     playerInputRef: RefObject<HTMLInputElement>
