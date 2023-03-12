@@ -15,12 +15,13 @@
 		box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
 		padding: 15px;
 		font-weight: bold;
-        width: 250px;
+        width: 330px;
         &.fadeIn {
 			opacity: 0;
 			animation: fadeIn ease-in 0.5s forwards;
 		}
 		.modalTitle {
+			font-size: var(--font-l);
 			text-align: end;
 			margin-bottom: 10px;
 		}
@@ -46,7 +47,6 @@
                 margin: 10px;
 			}
 			input[type="range"] {
-				// -webkit-appearance: none;
 				margin-right: 15px;
 				width: 100%;
 				height: 5px;
@@ -56,8 +56,6 @@
 					var(--color-fifth),
 					var(--color-sixth)
 				);
-				// background-size: 20% 100%;
-				// background-repeat: no-repeat;
 			}
 
 			input[type="range"]::-webkit-slider-thumb {
@@ -94,6 +92,7 @@
                 border-radius: 8px;
                 padding: 3px;
                 transition: var(--transition);
+				font-size: var(--font-xs);
                 &:hover {
                     background-color: var(--color-fifth);
                     color: #fff;
@@ -104,10 +103,12 @@
 				background-color: transparent;
 				border: none;
                 font-weight: bold;
+				color: #000;
                 cursor: pointer;
                 border: 2px solid #000;
                 border-radius: 8px;
                 padding: 3px;
+				font-size: var(--font-xs);
                 transition: var(--transition);
                 &:hover {
                     background-color: #000;

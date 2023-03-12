@@ -6,15 +6,7 @@
     justify-content: flex-end;
     padding: 0 5px;
     .topIndication {
+        font-size: var(--font-m);
         font-weight: bold;
-    }
-    .deleteAllBtn {
-        color: #000;
-        transition: var(--transition);
-        cursor: pointer;
-        font-size: var(--font-l);
-        &:hover {
-            color: var(--color-remove-hover);
-        }
     }
 }

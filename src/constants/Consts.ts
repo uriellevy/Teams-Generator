@@ -12,5 +12,5 @@ export const CONSTS = {
     TEAMS_RESULTS: "!הקבוצות שלך",
     BACK_HOME_PAGE: "חזור",
     TEAM_NUMBER: "קבוצה מספר ",
-    ERROR_MESSAGE: "נא למלא שם שחקן ודירוג(0-10)",
+    ERROR_MESSAGE: "נא למלא שם שחקן ודירוג תקינים",
 };

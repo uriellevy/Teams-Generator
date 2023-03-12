@@ -22,17 +22,17 @@ const ListItem = ({ listItem }: ListItemProps) => {
 
   useEffect(() => {
     textInputRef.current?.focus();
-  },[listItem.isEditMode])
+  }, [listItem.isEditMode])
 
   return (
     <li className={classes.listItemWrapper}>
       {listItem.isEditMode ?
         <>
           <div className={classes.editModeWrapper}>
-            <GiConfirmed className={classes.iconConfirmEdit} onClick={() => onEditPlayerConfirm(listItem.id, playerEdited, rating)}/>
+            <GiConfirmed className={classes.iconConfirmEdit} onClick={() => onEditPlayerConfirm(listItem.id, playerEdited, rating)} />
             <div className={classes.editInputs}>
-              <input className={classes.editPlayerName} type="number"  min={0} max={10} placeholder='הזן דירוג שחקן...' dir='rtl' value={rating} onChange={(e:ChangeEvent<HTMLInputElement>) => setRating(+e.target.value)}/>
-              <input className={classes.editRating} type="text" ref={textInputRef} placeholder='הזן שם שחקן...' dir='rtl' required value={playerEdited} onChange={(e:ChangeEvent<HTMLInputElement>) => setPlayerEdited(e.target.value)}/>
+              <input className={classes.editPlayerName} type="number" min={0} max={10} placeholder='הזן דירוג שחקן...' dir='rtl' value={rating} onChange={(e: ChangeEvent<HTMLInputElement>) => setRating(+e.target.value)} />
+              <input className={classes.editRating} type="text" ref={textInputRef} placeholder='הזן שם שחקן...' dir='rtl' required value={playerEdited} onChange={(e: ChangeEvent<HTMLInputElement>) => setPlayerEdited(e.target.value)} />
             </div>
           </div>
         </>
@@ -40,11 +40,13 @@ const ListItem = ({ listItem }: ListItemProps) => {
         <>
           <div className={classes.itemIconsWrapper}>
             <MdRemoveCircle className={classes.iconRemoveItem} onClick={() => onDeletePlayer(listItem.id)} />
-            <FaEdit className={classes.iconEditItem} onClick={() => onOpenEditMode(listItem.id)}/>
+            <FaEdit className={classes.iconEditItem} onClick={() => onOpenEditMode(listItem.id)} />
             <div className={activeBtnStyle} onClick={() => onToggleActiveStatus(listItem.id)}>{activeBtnContent}</div>
           </div>
-          <RatingDisplay rating={listItem.rating} />
-          <div className={classes.text}>{listItem.playerName}</div>
+          <div className={classes.moreDetails}>
+            <RatingDisplay rating={listItem.rating} />
+            <div className={classes.text}>{listItem.playerName}</div>
+          </div>
         </>
       }
 

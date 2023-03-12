@@ -43,7 +43,7 @@ export const TeamsGeneratorProvider = (props: any) => {
     }
 
     const onEditPlayerConfirm = (id: string, newPlayer: string, newRating: number) => {
-        if (!newPlayer) return
+        if (!newPlayer || newRating < 0 || newRating > 10) return
         const updatedList = allPlayersList.map((listItem) => {
             if (listItem.id === id) {
                 return { ...listItem, playerName: newPlayer, rating: newRating, isEditMode: false }
@@ -84,6 +84,7 @@ export const TeamsGeneratorProvider = (props: any) => {
         }
         setAllTeams(teamsArray);
         localStorageService.saveAllTeams(teamsArray);
+        window.scrollTo(0, 0);
     }
 
     const sortByRating = (teamsNumber: number) => {
@@ -101,6 +102,7 @@ export const TeamsGeneratorProvider = (props: any) => {
         }
         setAllTeams(teamsArray);
         localStorageService.saveAllTeams(teamsArray);
+        window.scrollTo(0, 0);
     }
 
 

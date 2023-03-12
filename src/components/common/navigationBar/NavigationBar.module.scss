@@ -9,6 +9,7 @@
 	padding: 0 10px;
 	font-size: var(--font-m);
     z-index: 100;
+
 }
 
 .navTeamsContainer {
@@ -18,10 +19,11 @@
 	color: #fff;
 	display: flex;
 	align-items: center;
-    justify-content: space-between;
+	justify-content: flex-end;
 	padding: 0 10px;
 	font-size: var(--font-m);
     border-bottom: var(--border2);
+	position: relative;
     .btnBackWrapper {
         display: flex;
         align-items: center;
@@ -29,5 +31,7 @@
     }
     .navMainTitle {
         margin-left: 10px;
+		position: absolute;
+		left: calc(50% - 75px);
     }
 }

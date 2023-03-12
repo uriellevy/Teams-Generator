@@ -6,6 +6,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+    min-height: 90vh;
 	align-items: center;
 	.listWrapper {
         &.fadeIn {
@@ -39,9 +40,6 @@
 		margin-top: 100px;
 		cursor: pointer;
 		transition: var(--transition);
-		animation-name: scale;
-		animation-duration: 1.5s;
-		animation-iteration-count: infinite;
 		&:hover {
 			color: var(--color-approve-hover);
 		}
@@ -62,8 +60,10 @@
 		padding: 0 5px;
 		max-width: 550px;
 		.btnSubmit {
+			font-size: var(--font-m);
+			color: #fff;
 			width: 100%;
-			height: 30px;
+			height: 40px;
 			text-align: center;
 			font-weight: bold;
 			background-color: var(--color-approve);

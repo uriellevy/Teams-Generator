@@ -12,7 +12,7 @@
     --color-third: #73E68C;
     --color-forth: #4CC17A;
     --color-fifth: #2B8C6D;
-    --color-sixth: #246955;
+    --color-sixth: #006A4E;
     --color-remove: #e34234;
     --color-remove-hover: #800020;
     --color-approve-hover: #0047AB;
@@ -24,10 +24,10 @@
     --gradient-secondary: radial-gradient(ellipse farthest-corner at 50% 50%, #E8FFE6 0%, #56C756 100%);
     --border-radius: 5px;
     --font-xl: 32px;
-    --font-l: 24px;
-    --font-m: 20px;
-    --font-s: 16px;
-    --font-xs: 12px;
+    --font-l: 28px;
+    --font-m: 24px;
+    --font-s: 20px;
+    --font-xs: 16px;
     --border: 2px solid #fff;
     --border2: 2px solid rgba(255, 255, 255, 0.5);
     --transition: all 0.3s ease;
@@ -36,11 +36,13 @@
   body {
     width: 100vw;
     height: 100vh;
+    background: var(--gradient-primary);
+    
 }
 
 .app {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background: var(--gradient-primary);
     display: flex;
     flex-direction: column;

@@ -27,7 +27,6 @@ const NavigationBar = () => {
         <div className={classes.navContainer}>{NAV_TITLE}</div>
         :
         <div className={classes.navTeamsContainer}>
-          <BsShareFill className={classes.navMenu} onClick={onMenuClick} />
           <div className={classes.navMainTitle}>{TEAMS_RESULTS}</div>
           <div className={classes.btnBackWrapper} onClick={() => navigate("/")}>
             <div className={classes.backTitle}>{BACK_HOME_PAGE}</div>

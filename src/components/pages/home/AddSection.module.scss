@@ -5,7 +5,7 @@
 	align-items: center;
 	padding: 7px 0 3px 0;
 	.addItemBtn {
-		font-size: var(--font-xl);
+		font-size: 50px;
 		color: var(--color-approve);
 		transition: var(--transition);
         background-color: transparent;
@@ -18,11 +18,9 @@
 
 	.inputsArea {
 		width: 100%;
-		// text-align: end;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-left: 10px;
 		.inputsWrapper {
 			width: 100%;
 			input {
@@ -31,6 +29,7 @@
 				border: none;
 				width: 100%;
 				font-weight: bold;
+				font-size: var(--font-s);
 				&::placeholder {
 					color: var(--color-separator);
 				}
@@ -44,6 +43,7 @@
 		}
 		.eraseText {
 			color: var(--color-separator);
+			font-size: var(--font-l);
 			font-weight: bold;
 			cursor: pointer;
 			transition: var(--transition);
