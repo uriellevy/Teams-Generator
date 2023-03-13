@@ -10,7 +10,7 @@
 	background-color: var(--color-separator);
     z-index: 1;
 	.modalWrapper {
-		background-color: #fff;
+		background-color: var(--color-main);
 		border-radius: var(--border-radius);
 		box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
 		padding: 15px;
@@ -95,24 +95,32 @@
 				font-size: var(--font-xs);
                 &:hover {
                     background-color: var(--color-fifth);
-                    color: #fff;
+                    color: var(--color-main);
                 }
+				&:disabled {
+					border: 2px solid var(--color-disable);
+                    background-color: var(--color-disable);
+					color: var(--color-main);
+					cursor:not-allowed;
+					pointer-events: none;
+				}
 			}
 			.btnCancel {
 				margin: 0 5px;
 				background-color: transparent;
 				border: none;
                 font-weight: bold;
-				color: #000;
+				color: var(--color-main);
                 cursor: pointer;
-                border: 2px solid #000;
+                border: 2px solid var(--color-approve);
+				background-color: var(--color-approve);
                 border-radius: 8px;
                 padding: 3px;
 				font-size: var(--font-xs);
                 transition: var(--transition);
                 &:hover {
-                    background-color: #000;
-                    color: #fff;
+                    background-color: var(--color-main);
+                    color: var(--color-approve);
                 }
 			}
 		}

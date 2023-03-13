@@ -8,7 +8,6 @@ import { TeamsGeneratorProvider } from './context/teamsGeneratorContext';
 import { AnimatePresence } from "framer-motion";
 import Footer from './components/common/footer/Footer';
 
-
 function App() {
   return (
     <div className="app">

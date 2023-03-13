@@ -5,7 +5,7 @@ export const CONSTS = {
     MODAL_MAIN_TITLE: "?כמה קבוצות",
     MODAL_RANDOM: "מיון אקראי",
     MODAL_RATING_SORT: "מיון לפי דירוג",
-    MODAL_CANCEL: "ביטול",
+    MODAL_CANCEL: "חזור",
     ACTIVE_PLAYER: "פעיל",
     NOT_ACTIVE_PLAYER: "לא פעיל",
     NOT_POSSIBLE_RESPONSE: "- כמות הקבוצות צריכה להיות קטנה מ",
@@ -13,4 +13,5 @@ export const CONSTS = {
     BACK_HOME_PAGE: "חזור",
     TEAM_NUMBER: "קבוצה מספר ",
     ERROR_MESSAGE: "נא למלא שם שחקן ודירוג תקינים",
+    ADD_SECTION_TITLE: ":צור שחקן",
 };

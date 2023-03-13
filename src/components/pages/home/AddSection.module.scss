@@ -1,54 +1,74 @@
-.addSectionWrapper {
+.addSectionContainer {
 	display: flex;
-	width: 100%;
-	justify-content: flex-end;
-	align-items: center;
-	padding: 7px 0 3px 0;
-	.addItemBtn {
-		font-size: 50px;
-		color: var(--color-approve);
-		transition: var(--transition);
-        background-color: transparent;
-        border: none;
-		cursor: pointer;
-		&:hover {
-			color: var(--color-approve-hover);
-		}
+	flex-direction: column;
+	align-items: flex-end;
+	margin: 15px 0 30px 0;
+	padding: 15px 0;
+	border-bottom: 2px var(--color-separator) solid;
+	border-top: 2px var(--color-separator) solid;
+	.addSectionTitle {
+		font-weight: bold;
+		color: #fff;
+		text-decoration: underline;
+		font-size: var(--font-m);
 	}
-
-	.inputsArea {
-		width: 100%;
+	.addSectionWrapper {
 		display: flex;
-		justify-content: space-between;
+		width: 100%;
+		justify-content: flex-end;
 		align-items: center;
-		.inputsWrapper {
+		padding: 7px 0 3px 0;
+		.addItemBtn {
+			font-size: 50px;
+			color: #fff;
+			transition: var(--transition);
+			background-color: var(--color-approve);
+			border-radius: 12px;
+			cursor: pointer;
+			&:hover {
+				background-color: #fff;
+				color: var(--color-approve);
+			}
+		}
+
+		.inputsArea {
 			width: 100%;
-			input {
-				background-color: transparent;
-				outline: none;
-				border: none;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.inputsWrapper {
 				width: 100%;
-				font-weight: bold;
-				font-size: var(--font-s);
-				&::placeholder {
-					color: var(--color-separator);
+				input {
+					background-color: var(--color-primary);
+					border-radius: 10px;
+					margin-bottom: 5px;
+					padding: 5px;
+					outline: none;
+					border: 2px var(--color-forth) solid;
+					width: 100%;
+					font-weight: bold;
+					font-size: var(--font-s);
+					&::placeholder {
+						color: var(--color-separator);
+					}
+				}
+				.errorMessage {
+					font-weight: bold;
+					color: var(--color-remove-hover);
+					font-size: var(--font-xs);
+					text-align: end;
 				}
 			}
-            .errorMessage {
-                font-weight: bold;
-                color: var(--color-remove-hover);
-                font-size: var(--font-xs);
-                text-align: end;
-            }
-		}
-		.eraseText {
-			color: var(--color-separator);
-			font-size: var(--font-l);
-			font-weight: bold;
-			cursor: pointer;
-			transition: var(--transition);
-			&:hover {
-				color: #000;
+			.eraseText {
+				color: var(--color-separator);
+				font-size: var(--font-l);
+				font-weight: bold;
+				margin: 0 8px;
+				cursor: pointer;
+				transition: var(--transition);
+				&:hover {
+					color: #000;
+				}
 			}
 		}
 	}

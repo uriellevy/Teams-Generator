@@ -20,6 +20,7 @@
     --color-separator: rgba(255, 255, 255, 0.5);
     --color-disable: rgb(102, 102, 102);
     --color-separator: rgba(0, 0, 0, 0.5);
+    --color-main: #fff;
     --gradient-primary: linear-gradient(180deg, #D7FFCD 0%, #2B8C6D 100%), linear-gradient(45deg, #73E68C, #4CC17A, #A4FF93);
     --gradient-secondary: radial-gradient(ellipse farthest-corner at 50% 50%, #E8FFE6 0%, #56C756 100%);
     --border-radius: 5px;
@@ -31,8 +32,8 @@
     --border: 2px solid #fff;
     --border2: 2px solid rgba(255, 255, 255, 0.5);
     --transition: all 0.3s ease;
+    
   }
-  
   body {
     width: 100vw;
     height: 100vh;
