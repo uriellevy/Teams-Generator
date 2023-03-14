@@ -1,4 +1,3 @@
-import React from 'react'
 import classes from "./Team.module.scss"
 import { TeamItem } from '../../../interfaces/interfaces'
 import RatingDisplay from '../../common/ratingDisplay/RatingDisplay'
@@ -14,7 +13,7 @@ const Team = ({team, teamNumber}: TeamProps) => {
     <div className={`${classes.teamContainer} ${classes.fadeIn}`}>
         <div className={classes.teamTitle}>{`${CONSTS.TEAM_NUMBER} ${teamNumber}`}</div>
         {team.map((teamItem) => (
-            <div className={classes.teamItemWrapper}>
+            <div className={classes.teamItemWrapper} key={teamItem.id}>
                 <RatingDisplay rating={teamItem.rating}/>
                 <div className={classes.teamPlayer}>{teamItem.playerName}</div>
             </div>

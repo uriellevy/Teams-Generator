@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useCallback } from "react";
 import { ListItemDesc, TeamItem } from "../interfaces/interfaces";
 import { v4 as uuidv4 } from 'uuid';
 import { localStorageService } from "../services/localStorage";
@@ -22,7 +22,7 @@ export const TeamsGeneratorProvider = (props: any) => {
     const [allPlayersList, setAllPlayersList] = useState<ListItemDesc[]>(localStorageService.getAllPlayersList());
     const [allTeams, setAllTeams] = useState<TeamItem[][]>(localStorageService.getAllTeams())
 
-    const onPlayerAdd = (name: string, rating: number) => {
+    const onPlayerAdd = useCallback((name: string, rating: number) => {
         const updatedList = [...allPlayersList, {
             playerName: name,
             rating: rating,
@@ -32,26 +32,30 @@ export const TeamsGeneratorProvider = (props: any) => {
         }]
         setAllPlayersList(updatedList);
         localStorageService.saveAllPlayersList(updatedList);
-    }
+    }, [])
 
 
 
-    const onDeletePlayer = (id: string) => {
-        const updatedList = allPlayersList.filter((listItem) => listItem.id !== id)
-        setAllPlayersList([...updatedList]);
-        localStorageService.saveAllPlayersList(updatedList);
-    }
+    const onDeletePlayer = useCallback((id: string) => {
+        setAllPlayersList((prevList) => {
+            const updatedList = prevList.filter((listItem) => listItem.id !== id)
+            localStorageService.saveAllPlayersList(updatedList);
+            return [...updatedList]
+        });
+    }, [])
 
-    const onEditPlayerConfirm = (id: string, newPlayer: string, newRating: number) => {
+    const onEditPlayerConfirm = useCallback((id: string, newPlayer: string, newRating: number) => {
         if (!newPlayer || newRating < 0 || newRating > 10) return
-        const updatedList = allPlayersList.map((listItem) => {
-            if (listItem.id === id) {
-                return { ...listItem, playerName: newPlayer, rating: newRating, isEditMode: false }
-            } else return { ...listItem }
-        })
-        setAllPlayersList(updatedList);
-        localStorageService.saveAllPlayersList(updatedList);
-    }
+        setAllPlayersList((prevList) => {
+            const updatedList = prevList.map((listItem) => {
+                if (listItem.id === id) {
+                    return { ...listItem, playerName: newPlayer, rating: newRating, isEditMode: false }
+                } else return { ...listItem }
+            })
+            localStorageService.saveAllPlayersList(updatedList);
+            return updatedList;
+        });
+    }, [])
 
     const onOpenEditMode = (id: string) => {
         const editListItem = allPlayersList.find((listItem) => listItem.isEditMode === true);
@@ -66,13 +70,15 @@ export const TeamsGeneratorProvider = (props: any) => {
     }
 
     const onToggleActiveStatus = (id: string) => {
-        const updatedList = allPlayersList.map((listItem) => {
-            if (listItem.id === id) {
-                return { ...listItem, isActive: !listItem.isActive }
-            } else return { ...listItem }
+        setAllPlayersList((prevList) => {
+            const updatedList = prevList.map((listItem) => {
+                if (listItem.id === id) {
+                    return { ...listItem, isActive: !listItem.isActive }
+                } else return { ...listItem }
+            })
+            localStorageService.saveAllPlayersList(updatedList);
+            return updatedList;
         })
-        setAllPlayersList(updatedList)
-        localStorageService.saveAllPlayersList(updatedList);
     }
 
     const randomShuffle = (teamsNumber: number) => {

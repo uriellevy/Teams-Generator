@@ -12,7 +12,7 @@ interface ListItemProps {
   listItem: ListItemDesc
 }
 
-const ListItem = ({ listItem }: ListItemProps) => {
+const ListItem = React.memo(({ listItem }: ListItemProps) => {
   const { onDeletePlayer, onToggleActiveStatus, onOpenEditMode, onEditPlayerConfirm } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
   const [playerEdited, setPlayerEdited] = useState(listItem.playerName);
   const [rating, setRating] = useState(listItem.rating);
@@ -22,8 +22,8 @@ const ListItem = ({ listItem }: ListItemProps) => {
 
   useEffect(() => {
     textInputRef.current?.focus();
-  }, [listItem.isEditMode])
-
+  }, [listItem.isEditMode]);
+  
   return (
     <li className={classes.listItemWrapper}>
       {listItem.isEditMode ?
@@ -52,6 +52,6 @@ const ListItem = ({ listItem }: ListItemProps) => {
 
     </li>
   )
-}
+})
 
 export default ListItem

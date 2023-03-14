@@ -1,26 +1,24 @@
-import React, { ChangeEvent, RefObject, useContext, useState } from 'react'
+import React, { ChangeEvent, RefObject, useState } from 'react'
 import classes from "./AddSection.module.scss"
 import { AiOutlinePlus } from 'react-icons/ai';
 import { TiDelete } from 'react-icons/ti';
-import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext';
 import { CONSTS } from '../../../constants/Consts';
 interface AddSectionProps {
     playerInputRef: RefObject<HTMLInputElement>
+    onPlayerAdd: (name: string, rating: number) => void
 }
 
-
-
-const AddSection = ({ playerInputRef }: AddSectionProps) => {
+const AddSection = React.memo(({ playerInputRef, onPlayerAdd}: AddSectionProps) => {
     const {ERROR_MESSAGE, ADD_SECTION_TITLE} = CONSTS;
-    const { onPlayerAdd } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
     const [playerName, setPlayerName] = useState("");
     const [playerRating, setPlayerRating] = useState("");
     const [inputsError, setInputsError] = useState(false);
-
+    
     const onInputsDelete = () => {
         setPlayerName("");
         setPlayerRating("");
     }
+    console.log("addsection")
 
     const onPlayerAddHandler = () => {
         const unvalidNumber = +playerRating < 0 || +playerRating > 10 || !playerRating;
@@ -52,6 +50,6 @@ const AddSection = ({ playerInputRef }: AddSectionProps) => {
             </div>
         </form>
     )
-}
+})
 
 export default AddSection

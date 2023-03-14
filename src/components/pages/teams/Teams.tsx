@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import classes from "./Teams.module.scss"
 import Team from './Team'
 import AnimatedPage from "../../../utils/AnimatedPage";
@@ -12,7 +12,7 @@ const Teams = () => {
     <div className={classes.teamsContainer}>
       <AnimatedPage>
         {allTeams.map((team, i) => (
-          <Team team={team} teamNumber={i + 1}/>
+          <Team team={team} teamNumber={i + 1} key={i}/>
         ))}
       </AnimatedPage>
     </div>

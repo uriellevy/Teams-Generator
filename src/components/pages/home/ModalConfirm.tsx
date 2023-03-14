@@ -21,12 +21,13 @@ const ModalConfirm = ({ allPlayersList, setFalse, isModalConfirmOpen }: ModalCon
     const numOfActivePlayers = allPlayersList.filter((item) => item.isActive).length;
     const indicationStyle = `${error ? `${classes.teamsIndication} ${classes.errorMessage}` : `${classes.teamsIndication}`}`;
     const navigate = useNavigate();
+    console.log("modalConfirm")
 
 
     useEffect(() => {
         if(+numberOfTeams === 0 || error)  {
-            setisDisabled(true)
-        }else setisDisabled(false)
+            setisDisabled(true);
+        }else setisDisabled(false);
     },[numberOfTeams]);
 
     const getTeamsDivisionResponse = (numOfTeams: number, numOfPlayers: number) => {
@@ -41,6 +42,7 @@ const ModalConfirm = ({ allPlayersList, setFalse, isModalConfirmOpen }: ModalCon
             return isRemainExist ? `(גודל קבוצה: ${firstTeamLength}-${firstTeamLength + 1})` : `(גודל קבוצה: ${firstTeamLength})`;
         }
     }
+
     const onRangeInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setIndication(getTeamsDivisionResponse(+e.target.value, numOfActivePlayers))
         setNumberOfTeams(e.target.value)
