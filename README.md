@@ -1,5 +1,7 @@
 # Teams Generator
 
+## [Click to view the **Demo**](https://teams-generator.netlify.app)
+
 ## How to initialize the project?
 
 Download zip file or clone the project.
