@@ -23,7 +23,7 @@ const ListItem = React.memo(({ listItem }: ListItemProps) => {
   useEffect(() => {
     textInputRef.current?.focus();
   }, [listItem.isEditMode]);
-  
+
   return (
     <li className={classes.listItemWrapper}>
       {listItem.isEditMode ?

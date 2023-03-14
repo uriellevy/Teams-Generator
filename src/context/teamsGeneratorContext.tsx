@@ -13,38 +13,40 @@ export interface TeamsGeneratorContextType {
     onOpenEditMode: (id: string) => void
     randomShuffle: (teamsNumber: number) => void
     sortByRating: (teamsNumber: number) => void
-}
+};
 
 
 export const TeamsGeneratorContext = createContext<TeamsGeneratorContextType | null>(null);
 
 export const TeamsGeneratorProvider = (props: any) => {
     const [allPlayersList, setAllPlayersList] = useState<ListItemDesc[]>(localStorageService.getAllPlayersList());
-    const [allTeams, setAllTeams] = useState<TeamItem[][]>(localStorageService.getAllTeams())
+    const [allTeams, setAllTeams] = useState<TeamItem[][]>(localStorageService.getAllTeams());
 
     const onPlayerAdd = useCallback((name: string, rating: number) => {
-        const updatedList = [...allPlayersList, {
-            playerName: name,
-            rating: rating,
-            id: uuidv4(),
-            isActive: true,
-            isEditMode: false,
-        }]
-        setAllPlayersList(updatedList);
-        localStorageService.saveAllPlayersList(updatedList);
-    }, [])
-
-
-
-    const onDeletePlayer = useCallback((id: string) => {
         setAllPlayersList((prevList) => {
-            const updatedList = prevList.filter((listItem) => listItem.id !== id)
+            const updatedList = [...prevList, {
+                playerName: name,
+                rating: rating,
+                id: uuidv4(),
+                isActive: true,
+                isEditMode: false,
+            }];
             localStorageService.saveAllPlayersList(updatedList);
-            return [...updatedList]
+            return updatedList;
         });
-    }, [])
+    }, []);
 
-    const onEditPlayerConfirm = useCallback((id: string, newPlayer: string, newRating: number) => {
+
+
+    const onDeletePlayer = (id: string) => {
+        setAllPlayersList((prevList) => {
+            const updatedList = prevList.filter((listItem) => listItem.id !== id);
+            localStorageService.saveAllPlayersList(updatedList);
+            return [...updatedList];
+        });
+    };
+
+    const onEditPlayerConfirm = (id: string, newPlayer: string, newRating: number) => {
         if (!newPlayer || newRating < 0 || newRating > 10) return
         setAllPlayersList((prevList) => {
             const updatedList = prevList.map((listItem) => {
@@ -55,7 +57,7 @@ export const TeamsGeneratorProvider = (props: any) => {
             localStorageService.saveAllPlayersList(updatedList);
             return updatedList;
         });
-    }, [])
+    }
 
     const onOpenEditMode = (id: string) => {
         const editListItem = allPlayersList.find((listItem) => listItem.isEditMode === true);
@@ -63,23 +65,23 @@ export const TeamsGeneratorProvider = (props: any) => {
         if (isEditAlreadyOpened) return;
         const updatedList = allPlayersList.map((listItem) => {
             if (listItem.id === id) {
-                return { ...listItem, isEditMode: !listItem.isEditMode }
-            } else return { ...listItem }
-        })
-        setAllPlayersList(updatedList)
-    }
+                return { ...listItem, isEditMode: !listItem.isEditMode };
+            } else return { ...listItem };
+        });
+        setAllPlayersList(updatedList);
+    };
 
     const onToggleActiveStatus = (id: string) => {
         setAllPlayersList((prevList) => {
             const updatedList = prevList.map((listItem) => {
                 if (listItem.id === id) {
-                    return { ...listItem, isActive: !listItem.isActive }
-                } else return { ...listItem }
+                    return { ...listItem, isActive: !listItem.isActive };
+                } else return { ...listItem };
             })
             localStorageService.saveAllPlayersList(updatedList);
             return updatedList;
-        })
-    }
+        });
+    };
 
     const randomShuffle = (teamsNumber: number) => {
         const shuffledItems = allPlayersList.sort(() => Math.random() - 0.5).filter((listItem) => listItem.isActive);
@@ -91,7 +93,7 @@ export const TeamsGeneratorProvider = (props: any) => {
         setAllTeams(teamsArray);
         localStorageService.saveAllTeams(teamsArray);
         window.scrollTo(0, 0);
-    }
+    };
 
     const sortByRating = (teamsNumber: number) => {
         const teamsArray: ListItemDesc[][] = Array.from({ length: teamsNumber }, () => []);
@@ -109,7 +111,7 @@ export const TeamsGeneratorProvider = (props: any) => {
         setAllTeams(teamsArray);
         localStorageService.saveAllTeams(teamsArray);
         window.scrollTo(0, 0);
-    }
+    };
 
 
 
