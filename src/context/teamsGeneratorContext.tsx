@@ -104,8 +104,8 @@ export const TeamsGeneratorProvider = (props: any) => {
             if (currentTeamIdx === teamsArray.length) {
                 teamsArray.reverse();
                 currentTeamIdx = 0;
-            }
-            teamsArray[currentTeamIdx].push(activeSortedPlayers[i])
+            };
+            teamsArray[currentTeamIdx].push(activeSortedPlayers[i]);
             currentTeamIdx++;
         }
         setAllTeams(teamsArray);
