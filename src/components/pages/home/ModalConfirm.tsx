@@ -8,12 +8,11 @@ import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../conte
 interface ModalConfirmProps {
     allPlayersList: ListItemDesc[]
     setFalse: () => void
-    isModalConfirmOpen:boolean
 }
 
-const ModalConfirm = ({ allPlayersList, setFalse, isModalConfirmOpen }: ModalConfirmProps) => {
+const ModalConfirm = ({ allPlayersList, setFalse }: ModalConfirmProps) => {
     const { randomShuffle, sortByRating } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
-
+    const {MODAL_MAIN_TITLE, MODAL_RATING_SORT, MODAL_RANDOM, MODAL_CANCEL} = CONSTS;
     const [numberOfTeams, setNumberOfTeams] = useState("0");
     const [indication, setIndication] = useState("");
     const [error, setError] = useState(false);
@@ -21,8 +20,6 @@ const ModalConfirm = ({ allPlayersList, setFalse, isModalConfirmOpen }: ModalCon
     const numOfActivePlayers = allPlayersList.filter((item) => item.isActive).length;
     const indicationStyle = `${error ? `${classes.teamsIndication} ${classes.errorMessage}` : `${classes.teamsIndication}`}`;
     const navigate = useNavigate();
-    console.log("modalConfirm")
-
 
     useEffect(() => {
         if(+numberOfTeams === 0 || error)  {
@@ -63,16 +60,16 @@ const ModalConfirm = ({ allPlayersList, setFalse, isModalConfirmOpen }: ModalCon
     return (
         <div className={classes.modalContainer}>
             <div className={`${classes.modalWrapper} ${classes.fadeIn}`}>
-                <div className={classes.modalTitle}>{CONSTS.MODAL_MAIN_TITLE}</div>
+                <div className={classes.modalTitle}>{MODAL_MAIN_TITLE}</div>
                 <div className={classes.inputWrapper}>
                     <div className={classes.teamsNumber}>{numberOfTeams}</div>
                     <div className={indicationStyle}>{indication}</div>
                     <input type="range" min={0} max={30} value={numberOfTeams} className={classes.rangeInput} onChange={onRangeInputChange} />
                 </div>
                 <div className={classes.bottomArea}>
-                    <button className={classes.btnConfirm} onClick={onModalRatingSortSubmit} disabled={isDisabled}>{CONSTS.MODAL_RATING_SORT}</button>
-                    <button className={classes.btnConfirm} onClick={onModalRandomSubmit} disabled={isDisabled}>{CONSTS.MODAL_RANDOM}</button>
-                    <button className={classes.btnCancel} onClick={() => setFalse()}>{CONSTS.MODAL_CANCEL}</button>
+                    <button className={classes.btnConfirm} onClick={onModalRatingSortSubmit} disabled={isDisabled}>{MODAL_RATING_SORT}</button>
+                    <button className={classes.btnConfirm} onClick={onModalRandomSubmit} disabled={isDisabled}>{MODAL_RANDOM}</button>
+                    <button className={classes.btnCancel} onClick={() => setFalse()}>{MODAL_CANCEL}</button>
                 </div>
             </div>
         </div>

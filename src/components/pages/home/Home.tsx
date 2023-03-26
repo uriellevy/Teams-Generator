@@ -31,7 +31,7 @@ const Home = () => {
                     <AddSection playerInputRef={playerInputRef} onPlayerAdd={onPlayerAdd}/>
                     <button className={classes.btnSubmit} onClick={() => setTrue()}>{CONSTS.GENERATE_TEAMS_BTN}</button>
                 </div>
-                {isModalConfirmOpen && <ModalConfirm allPlayersList={allPlayersList} setFalse={setFalse} isModalConfirmOpen={isModalConfirmOpen} />}
+                {isModalConfirmOpen && <ModalConfirm allPlayersList={allPlayersList} setFalse={setFalse}/>}
             </div>
     )
 }

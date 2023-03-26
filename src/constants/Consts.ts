@@ -14,4 +14,6 @@ export const CONSTS = {
     TEAM_NUMBER: "קבוצה מספר ",
     ERROR_MESSAGE: "נא למלא שם שחקן ודירוג תקינים",
     ADD_SECTION_TITLE: ":צור שחקן",
+    PLAYER_NAME_PLACEHOLDER: "הזן שם שחקן (עד 15 אותיות)",
+    PLAYER_RATE_PLACEHOLDER: "הזן דירוג שחקן (0-10)",
 };

@@ -9,7 +9,7 @@ interface AddSectionProps {
 }
 
 const AddSection = React.memo(({ playerInputRef, onPlayerAdd}: AddSectionProps) => {
-    const {ERROR_MESSAGE, ADD_SECTION_TITLE} = CONSTS;
+    const {ERROR_MESSAGE, ADD_SECTION_TITLE, PLAYER_NAME_PLACEHOLDER, PLAYER_RATE_PLACEHOLDER} = CONSTS;
     const [playerName, setPlayerName] = useState("");
     const [playerRating, setPlayerRating] = useState("");
     const [inputsError, setInputsError] = useState(false);
@@ -18,7 +18,6 @@ const AddSection = React.memo(({ playerInputRef, onPlayerAdd}: AddSectionProps) 
         setPlayerName("");
         setPlayerRating("");
     }
-    console.log("addsection")
 
     const onPlayerAddHandler = () => {
         const unvalidNumber = +playerRating < 0 || +playerRating > 10 || !playerRating;
@@ -43,8 +42,8 @@ const AddSection = React.memo(({ playerInputRef, onPlayerAdd}: AddSectionProps) 
                     <TiDelete className={classes.eraseText} onClick={onInputsDelete} />
                     <div className={classes.inputsWrapper}>
                         {inputsError && <div className={classes.errorMessage}>{ERROR_MESSAGE}</div>}
-                        <input type="text" ref={playerInputRef} placeholder='הזן שם שחקן (עד 15 אותיות)' dir='rtl' required value={playerName} onChange={(e: ChangeEvent<HTMLInputElement>) => setPlayerName(e.target.value)} />
-                        <input type="number" min={0} max={10} placeholder='הזן דירוג שחקן (0-10)' dir='rtl' value={playerRating} required onChange={(e: ChangeEvent<HTMLInputElement>) => setPlayerRating(e.target.value)} />
+                        <input type="text" ref={playerInputRef} placeholder={PLAYER_NAME_PLACEHOLDER} dir='rtl' required value={playerName} onChange={(e: ChangeEvent<HTMLInputElement>) => setPlayerName(e.target.value)} />
+                        <input type="number" min={0} max={10} placeholder={PLAYER_RATE_PLACEHOLDER} dir='rtl' value={playerRating} required onChange={(e: ChangeEvent<HTMLInputElement>) => setPlayerRating(e.target.value)} />
                     </div>
                 </div>
             </div>

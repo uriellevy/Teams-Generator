@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import classes from "./NavigationBar.module.scss"
-import { CONSTS } from '../../../constants/Consts'
-import { MdArrowForwardIos } from "react-icons/md"
-import { BsShareFill } from "react-icons/bs"
+import { useState, useEffect } from 'react';
+import classes from "./NavigationBar.module.scss";
+import { CONSTS } from '../../../constants/Consts';
+import { MdArrowForwardIos } from "react-icons/md";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
@@ -15,11 +14,6 @@ const NavigationBar = () => {
   useEffect(() => {
     setIsHomeNav(location.pathname === "/" ? true : false)
   }, [location]);
-
-  const onMenuClick = () => {
-    const shareData = { url: window.location.href }
-    navigator.share(shareData);
-  }
 
   return (
     <>
