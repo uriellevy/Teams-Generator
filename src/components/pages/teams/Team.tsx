@@ -2,16 +2,26 @@ import classes from "./Team.module.scss"
 import { TeamItem } from '../../../interfaces/interfaces'
 import RatingDisplay from '../../common/ratingDisplay/RatingDisplay'
 import { CONSTS } from '../../../constants/Consts'
+import { useState } from "react"
 
 interface TeamProps {
     team: TeamItem[]
-    teamNumber: number
+    teamIndex: number
 }
 
-const Team = ({team, teamNumber}: TeamProps) => {
+const Team = ({team, teamIndex}: TeamProps) => {
+  const [isEditMode, setIsEditMode] = useState(false);
+
+  const openEditModeHandler = () => {
+    setIsEditMode(true);
+    console.log(teamIndex)
+  }
+
+
+
   return (
     <div className={`${classes.teamContainer} ${classes.fadeIn}`}>
-        <div className={classes.teamTitle}>{`${CONSTS.TEAM_NUMBER} ${teamNumber}`}</div>
+        <div onClick={openEditModeHandler} className={classes.teamTitle}>{`${CONSTS.TEAM_NUMBER} ${teamIndex + 1}`}</div>
         {team.map((teamItem) => (
             <div className={classes.teamItemWrapper} key={teamItem.id}>
                 <RatingDisplay rating={teamItem.rating}/>

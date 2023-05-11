@@ -25,7 +25,7 @@ const ModalConfirm = ({ allPlayersList, setFalse }: ModalConfirmProps) => {
         if(+numberOfTeams === 0 || error)  {
             setisDisabled(true);
         }else setisDisabled(false);
-    },[numberOfTeams]);
+    },[numberOfTeams, error]);
 
     const getTeamsDivisionResponse = (numOfTeams: number, numOfPlayers: number) => {
         const firstTeamLength = Math.floor(numOfPlayers / numOfTeams);

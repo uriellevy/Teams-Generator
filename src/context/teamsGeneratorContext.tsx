@@ -36,8 +36,6 @@ export const TeamsGeneratorProvider = (props: any) => {
         });
     }, []);
 
-
-
     const onDeletePlayer = (id: string) => {
         setAllPlayersList((prevList) => {
             const updatedList = prevList.filter((listItem) => listItem.id !== id);
@@ -112,12 +110,6 @@ export const TeamsGeneratorProvider = (props: any) => {
         localStorageService.saveAllTeams(teamsArray);
         window.scrollTo(0, 0);
     };
-
-
-
-
-
-
 
     const value = {
         allPlayersList,
