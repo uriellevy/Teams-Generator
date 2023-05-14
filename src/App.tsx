@@ -1,6 +1,6 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Teams from './components/pages/teams/Teams';
 import Home from './components/pages/home/Home';
 import NavigationBar from './components/common/navigationBar/NavigationBar';
@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
-  
+
   return (
     <div className="app">
       <TeamsGeneratorProvider>
@@ -25,6 +25,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/teams" element={<Teams />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </AnimatePresence>
           <Footer />
