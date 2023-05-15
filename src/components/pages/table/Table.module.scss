@@ -25,12 +25,14 @@
 				text-align: -webkit-center;
 
 				.playerWrapper {
-					text-align: center;
 					font-weight: 600;
 					color: #fff;
 					display: flex;
 					justify-content: center;
 					border-bottom: 1px solid #fff;
+					&:last-child {
+						border-bottom: none;
+					}
 				}
 			}
 		}
