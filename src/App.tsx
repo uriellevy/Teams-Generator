@@ -8,6 +8,7 @@ import { TeamsGeneratorProvider } from './context/teamsGeneratorContext';
 import { AnimatePresence } from "framer-motion";
 import Footer from './components/common/footer/Footer';
 import ReactGA from 'react-ga';
+import Table from './components/pages/table/Table';
 const GA_TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID as string;
 ReactGA.initialize(GA_TRACKING_ID);
 
@@ -25,7 +26,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/teams" element={<Teams />} />
-              <Route path="*" element={<Navigate to="/" />} />
+              <Route path="/table" element={<Table />} />
+              {/* <Route path="*" element={<Navigate to="/" />} /> */}
             </Routes>
           </AnimatePresence>
           <Footer />

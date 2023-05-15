@@ -1,0 +1,32 @@
+.tableContainer {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	.table {
+		border: 2px solid #000;
+		border-collapse: collapse;
+		width: 100%;
+		margin: 0 5px;
+
+		.tableHead {
+			.headTitleWrapper {
+				.headTitle {
+					border: 1px solid #000;
+					padding: 3px;
+					font-weight: bold;
+				}
+			}
+		}
+		.tableBody {
+			.bodyColumn {
+				border: 1px solid #000;
+				text-align: -webkit-center;
+
+				.playerWrapper {
+					text-align: center;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}

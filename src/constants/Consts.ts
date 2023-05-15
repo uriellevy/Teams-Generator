@@ -11,6 +11,7 @@ export const CONSTS = {
     NOT_POSSIBLE_RESPONSE: "- כמות הקבוצות צריכה להיות קטנה מ",
     TEAMS_RESULTS: "!הקבוצות שלך",
     BACK_HOME_PAGE: "חזור",
+    TABLE_PAGE: "טבלה",
     TEAM_NUMBER: "קבוצה מספר ",
     ERROR_MESSAGE: "נא למלא שם שחקן ודירוג תקינים",
     ADD_SECTION_TITLE: ":צור שחקן",

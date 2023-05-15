@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import classes from "./Teams.module.scss"
 import Team from './Team'
 import AnimatedPage from "../../../utils/AnimatedPage";
@@ -39,10 +39,7 @@ const Teams = () => {
       reorderedStores[indexOfDestinationArray].splice(destination.index,0,draggedItem);
 
       setAllTeams(reorderedStores)
-      console.log(results)
-
     }
-
   };
 
   return (
