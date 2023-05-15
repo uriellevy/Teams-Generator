@@ -1,52 +1,55 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,300&display=swap');
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
-    --color-primary: #D7FFCD;
-    --color-secondary: #A4FF93;
-    --color-third: #73E68C;
-    --color-forth: #4CC17A;
-    --color-fifth: #2B8C6D;
-    --color-sixth: #006A4E;
-    --color-remove: #e34234;
-    --color-remove-hover: #800020;
-    --color-approve-hover: #0047AB;
-    --color-approve: #4169E1;
-    --color-separator: rgba(255, 255, 255, 0.5);
-    --color-disable: rgb(102, 102, 102);
-    --color-separator: rgba(0, 0, 0, 0.5);
-    --color-main: #fff;
-    --gradient-primary: linear-gradient(180deg, #D7FFCD 0%, #2B8C6D 100%), linear-gradient(45deg, #73E68C, #4CC17A, #A4FF93);
-    --gradient-secondary: radial-gradient(ellipse farthest-corner at 50% 50%, #E8FFE6 0%, #56C756 100%);
-    --border-radius: 5px;
-    --font-xl: 32px;
-    --font-l: 28px;
-    --font-m: 24px;
-    --font-s: 20px;
-    --font-xs: 16px;
-    --border: 2px solid #fff;
-    --border2: 2px solid rgba(255, 255, 255, 0.5);
-    --transition: all 0.3s ease;
-    
-  }
-  body {
-    width: 100vw;
-    height: 100vh;
-    background: var(--gradient-primary);
-    
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #D7FFCD;
+  --color-secondary: #A4FF93;
+  --color-third: #73E68C;
+  --color-forth: #4CC17A;
+  --color-fifth: #2B8C6D;
+  --color-sixth: #006A4E;
+  --color-remove: #e34234;
+  --color-remove-hover: #800020;
+  --color-approve-hover: #0047AB;
+  --color-approve: #4169E1;
+  --color-separator: rgba(255, 255, 255, 0.5);
+  --color-disable: rgb(102, 102, 102);
+  --color-separator: rgba(0, 0, 0, 0.5);
+  --color-main: #fff;
+  --gradient-primary: linear-gradient(180deg, #D7FFCD 0%, #2B8C6D 100%), linear-gradient(45deg, #73E68C, #4CC17A, #A4FF93);
+  --gradient-secondary: radial-gradient(ellipse farthest-corner at 50% 50%, #E8FFE6 0%, #56C756 100%);
+  --border-radius: 5px;
+  --font-xl: 32px;
+  --font-l: 28px;
+  --font-m: 24px;
+  --font-s: 20px;
+  --font-xs: 16px;
+  --border: 2px solid #fff;
+  --border2: 2px solid rgba(255, 255, 255, 0.5);
+  --transition: all 0.3s ease;
+}
+
+html {
+  overscroll-behavior: none;
+
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background: var(--gradient-primary);
+  overscroll-behavior: none;
 }
 
 .app {
-    width: 100vw;
-    height: 100%;
-    background: var(--gradient-primary);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Rubik', sans-serif;
-  }
+  width: 100vw;
+  height: 100%;
+  background: var(--gradient-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Rubik', sans-serif;
+}
