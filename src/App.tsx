@@ -27,7 +27,6 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/teams" element={<Teams />} />
               <Route path="/table" element={<Table />} />
-              <Route path="/*" element={<Navigate to="/" />} />
             </Routes>
           </AnimatePresence>
           <Footer />
