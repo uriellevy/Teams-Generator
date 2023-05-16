@@ -29,7 +29,7 @@ const Teams = () => {
       return setAllTeams(reorderedStores);
     }
 
-    if(source.droppableId !== destination.droppableId) {
+    // if(source.droppableId !== destination.droppableId) {
       const reorderedStores = [...allTeams];
       const indexOfSourceArray = +source.droppableId;
       const draggedItem = reorderedStores[+source.droppableId][source.index];
@@ -39,7 +39,7 @@ const Teams = () => {
       reorderedStores[indexOfDestinationArray].splice(destination.index,0,draggedItem);
 
       setAllTeams(reorderedStores)
-    }
+    // }
   };
 
   return (
