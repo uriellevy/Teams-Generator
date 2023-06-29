@@ -64,7 +64,7 @@ const ModalConfirm = ({ allPlayersList, setFalse }: ModalConfirmProps) => {
                 <div className={classes.inputWrapper}>
                     <div className={classes.teamsNumber}>{numberOfTeams}</div>
                     <div className={indicationStyle}>{indication}</div>
-                    <input type="range" min={0} max={30} value={numberOfTeams} className={classes.rangeInput} onChange={onRangeInputChange} />
+                    <input type="range" min={0} max={12} value={numberOfTeams} className={classes.rangeInput} onChange={onRangeInputChange} />
                 </div>
                 <div className={classes.bottomArea}>
                     <button className={classes.btnConfirm} onClick={onModalRatingSortSubmit} disabled={isDisabled}>{MODAL_RATING_SORT}</button>

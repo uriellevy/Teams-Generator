@@ -19,3 +19,18 @@ export const CONSTS = {
     PLAYER_NAME_PLACEHOLDER: "הזן שם שחקן (עד 15 אותיות)",
     PLAYER_RATE_PLACEHOLDER: "הזן דירוג שחקן (0-10)",
 };
+
+export const COLORS = [
+    "שחור",
+    "לבן",
+    "אדום",
+    "כתום",
+    "ירוק",
+    "כחול",
+    "צהוב",
+    "סגול",
+    "תכלת",
+    "ורוד",
+    "אפור",
+    "טורקיז",
+]

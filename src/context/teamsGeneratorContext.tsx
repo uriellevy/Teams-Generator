@@ -13,7 +13,7 @@ export interface TeamsGeneratorContextType {
     onOpenEditMode: (id: string) => void
     randomShuffle: (teamsNumber: number) => void
     sortByRating: (teamsNumber: number) => void
-    setAllTeams: any
+    setAllTeams: (allTeams: TeamItem[][]) => void
 };
 
 

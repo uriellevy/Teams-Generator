@@ -1,16 +1,18 @@
 import React, { useContext } from 'react'
 import classes from "./Table.module.scss"
 import { TeamsGeneratorContext, TeamsGeneratorContextType } from '../../../context/teamsGeneratorContext';
+import {COLORS} from "../../../constants/Consts";
 
 const Table = () => {
     const { allTeams } = useContext(TeamsGeneratorContext) as TeamsGeneratorContextType;
+    
     return (
         <div className={classes.tableContainer}>
             <table className={classes.table}>
                 <thead className={classes.tableHead}>
                     <tr className={classes.headTitleWrapper}>
                         {allTeams.map((curr, idx) => (
-                            <th className={classes.headTitle}>{`קבוצה מספר ${idx + 1}`}</th>
+                            <th className={classes.headTitle}>{COLORS[idx]}</th>
                         ))}
                     </tr>
                 </thead>
